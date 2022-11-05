@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [resourseNumber, setResourseNumberPerClick] = useState(0)
