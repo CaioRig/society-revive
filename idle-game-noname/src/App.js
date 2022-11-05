@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useState } from "react";
 
 function App() {
@@ -7,7 +7,9 @@ function App() {
 
   return (
     <div>
-      {resourseNumber}
+      <Typography>
+        {resourseNumber}
+      </Typography>
       <Button onClick={addNumberPerClick}>Click here</Button>
     </div>
   );
