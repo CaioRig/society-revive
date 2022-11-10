@@ -1,12 +1,12 @@
 import { Button, Typography } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import GlobalStateContext from "../global/GlobalStateContext";
 
 const Home = () => {
     const navigate = useNavigate()
 
-    const globalData = useContext(GlobalStateContext)
+    const globalData = useContext(GlobalStateContext).Game
 
     return (
         <div>

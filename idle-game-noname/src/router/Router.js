@@ -3,11 +3,13 @@ import {
     Route,
     Routes
 } from "react-router-dom";
+import Debugger from "../components/Debugger";
 import Home from "../pages/Home";
 
 const Router = () => {
     return (
         <BrowserRouter>
+            <Debugger />
             <Routes>
                 <Route index element={<Home />} />
                 <Route path='/' element={<Home />} />

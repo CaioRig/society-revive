@@ -20,11 +20,19 @@ const GlobalState = (props) => {
     }, [second])
 
     const globalData = {
-        resourseNumber,
-        addNumberPerClick,
-        addNumberPerSecond,
-        upgradeGatherer,
-        upgradeGatherPerSecond
+        Game: {
+            resourseNumber,
+            addNumberPerClick,
+            addNumberPerSecond,
+            upgradeGatherer,
+            upgradeGatherPerSecond
+        },
+        Debugger: {
+            resourseNumber,
+            resoursePerSecond,
+            clickUpdates,
+            second
+        }
     }
 
     return (
