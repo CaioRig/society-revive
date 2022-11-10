@@ -4,54 +4,55 @@ import useGetSeconds from "../hooks/useGetSeconds";
 
 const GlobalState = (props) => {
     const [resourseNumber, setResourseNumber] = useState(0)
+    const [buildingMaterialNumber, setBuildingMaterialNumber] = useState(0)
+    const [craftingMaterialNumber, setCraftingMaterialNumber] = useState(0)
 
-    const [resoursePerSecond, setResoursePerSecond] = useState(0)
-    const [survivorsQty, setSurvivorsQty] = useState(1)
-    const [resoursePerSecondPrice, setResoursePerSecondPrice] = useState(100)
+    const [buildingMaterialPerSec, setBuildingMaterialPerSec] = useState(0)
+    const [survivorsQty, setSurvivorsQty] = useState(0)
+    const [findSurvivorPrice, setFindSurvivorPrice] = useState(25)
 
-    const [clickUpdates, setClickUpdates] = useState(1)
-    const [boughtClickUpdates, setBoughtClickUpdates] = useState(0)
-    const [clickUpdatesPrice, setClickUpdatesPrice] = useState(10)
+    const [craftingMaterialPerSec, setCraftingMaterialPerSec] = useState(0)
+    const [housingQty, setHousingQty] = useState(0)
+    const [buildHousingPrice, setBuildHousingPrice] = useState(250)
 
     const second = useGetSeconds()
 
-    const addNumberPerClick = () => setResourseNumber(resourseNumber + clickUpdates)
-
-    const addNumberPerSecond = () => setResourseNumber(resourseNumber + resoursePerSecond)
-
-    const upgradeGatherer = () => {
-        setClickUpdates(clickUpdates + 1)
-        setResourseNumber(resourseNumber - clickUpdatesPrice)
-        setBoughtClickUpdates(boughtClickUpdates + 1)
-        setClickUpdatesPrice(clickUpdatesPrice + clickUpdates)
+    const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
+    const addNumberPerClick = () => {
+        setResourseNumber(resourseNumber + 1)
     }
-    const upgradeGatherPerSecond = () => {
-        setResoursePerSecond(resoursePerSecond + 1)
-        setResourseNumber(resourseNumber - resoursePerSecondPrice)
+
+    const findSurvivor = () => {
+        setResourseNumber(resourseNumber - findSurvivorPrice)
         setSurvivorsQty(survivorsQty + 1)
-        setResoursePerSecondPrice(resoursePerSecondPrice + resoursePerSecond)
+        setBuildingMaterialPerSec(buildingMaterialPerSec + (survivorsQty / 2))
+    }
+
+    const buildHousing = () => {
+        setBuildingMaterialNumber(buildingMaterialNumber - buildHousingPrice)
+        setHousingQty(housingQty + 1)
+        setBuildHousingPrice(buildHousingPrice + (housingQty / 2))
     }
 
     useEffect(() => {
-        addNumberPerSecond()
+        addBuildingMaterialPerSecond()
     }, [second])
 
     const globalData = {
         Game: {
             resourseNumber,
-            clickUpdatesPrice,
-            resoursePerSecondPrice,
+            findSurvivorPrice,
+            buildingMaterialNumber,
+            survivorsQty,
             addNumberPerClick,
-            addNumberPerSecond,
-            upgradeGatherer,
-            upgradeGatherPerSecond
+            buildHousing,
+            findSurvivor,
+            craftingMaterialNumber
         },
         Debugger: {
             resourseNumber,
-            resoursePerSecond,
-            clickUpdates,
-            second,
-            clickUpdatesPrice
+            buildingMaterialNumber,
+            second
         }
     }
 

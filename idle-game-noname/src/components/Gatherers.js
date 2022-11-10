@@ -6,7 +6,9 @@ const Gatherers = () => {
     const globalData = useContext(GlobalStateContext).Game
 
     return (
-        <Button onClick={globalData.addNumberPerClick}>Gather resourses</Button>
+        <Button onClick={globalData.addNumberPerClick}
+        title="Click to gather resourses"
+        >Gather resourses</Button>
     )
 }
 
