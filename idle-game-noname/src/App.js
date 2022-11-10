@@ -26,6 +26,7 @@ function App() {
       </Typography>
       <Button onClick={addNumberPerClick}>Gather resourses</Button>
       <br />
+      <br />
       <Button onClick={upgradeGatherer}>Upgrade gatherer</Button>
       <br />
       <Button onClick={upgradeGatherPerSecond}>Upgrade gather per second</Button>
