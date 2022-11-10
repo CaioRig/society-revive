@@ -14,6 +14,7 @@ const Upgrades = () => {
                     :
                     <Button onClick={globalData.upgradeGatherer}>Upgrade tools</Button>
             }
+            <p>Resource cost: {globalData.clickUpdatesPrice}</p>
             <br />
             {
                 globalData.resoursePerSecondPrice > globalData.resourseNumber
@@ -22,6 +23,7 @@ const Upgrades = () => {
                     :
                     <Button onClick={globalData.upgradeGatherPerSecond}>Find survivors</Button>
             }
+            <p>Resource cost: {globalData.resoursePerSecondPrice}</p>
         </>
     )
 }

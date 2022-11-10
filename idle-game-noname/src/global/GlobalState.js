@@ -6,9 +6,11 @@ const GlobalState = (props) => {
     const [resourseNumber, setResourseNumber] = useState(0)
 
     const [resoursePerSecond, setResoursePerSecond] = useState(0)
-    const [resoursePerSecondPrice, setResoursePerSecondPrice] = useState(10)
+    const [survivorsQty, setSurvivorsQty] = useState(1)
+    const [resoursePerSecondPrice, setResoursePerSecondPrice] = useState(100)
 
     const [clickUpdates, setClickUpdates] = useState(1)
+    const [boughtClickUpdates, setBoughtClickUpdates] = useState(0)
     const [clickUpdatesPrice, setClickUpdatesPrice] = useState(10)
 
     const second = useGetSeconds()
@@ -20,12 +22,14 @@ const GlobalState = (props) => {
     const upgradeGatherer = () => {
         setClickUpdates(clickUpdates + 1)
         setResourseNumber(resourseNumber - clickUpdatesPrice)
-        setClickUpdatesPrice(clickUpdatesPrice * 2)
+        setBoughtClickUpdates(boughtClickUpdates + 1)
+        setClickUpdatesPrice(clickUpdatesPrice + clickUpdates)
     }
     const upgradeGatherPerSecond = () => {
         setResoursePerSecond(resoursePerSecond + 1)
         setResourseNumber(resourseNumber - resoursePerSecondPrice)
-        setResoursePerSecondPrice(resoursePerSecondPrice * 2)
+        setSurvivorsQty(survivorsQty + 1)
+        setResoursePerSecondPrice(resoursePerSecondPrice + resoursePerSecond)
     }
 
     useEffect(() => {
