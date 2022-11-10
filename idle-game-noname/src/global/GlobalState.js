@@ -4,16 +4,29 @@ import useGetSeconds from "../hooks/useGetSeconds";
 
 const GlobalState = (props) => {
     const [resourseNumber, setResourseNumber] = useState(0)
+
     const [resoursePerSecond, setResoursePerSecond] = useState(0)
+    const [resoursePerSecondPrice, setResoursePerSecondPrice] = useState(10)
+
     const [clickUpdates, setClickUpdates] = useState(1)
+    const [clickUpdatesPrice, setClickUpdatesPrice] = useState(10)
+
     const second = useGetSeconds()
 
     const addNumberPerClick = () => setResourseNumber(resourseNumber + clickUpdates)
 
     const addNumberPerSecond = () => setResourseNumber(resourseNumber + resoursePerSecond)
 
-    const upgradeGatherer = () => setClickUpdates(clickUpdates + 1)
-    const upgradeGatherPerSecond = () => setResoursePerSecond(resoursePerSecond + 1)
+    const upgradeGatherer = () => {
+        setClickUpdates(clickUpdates + 1)
+        setResourseNumber(resourseNumber - clickUpdatesPrice)
+        setClickUpdatesPrice(clickUpdatesPrice * 2)
+    }
+    const upgradeGatherPerSecond = () => {
+        setResoursePerSecond(resoursePerSecond + 1)
+        setResourseNumber(resourseNumber - resoursePerSecondPrice)
+        setResoursePerSecondPrice(resoursePerSecondPrice * 2)
+    }
 
     useEffect(() => {
         addNumberPerSecond()
@@ -22,6 +35,8 @@ const GlobalState = (props) => {
     const globalData = {
         Game: {
             resourseNumber,
+            clickUpdatesPrice,
+            resoursePerSecondPrice,
             addNumberPerClick,
             addNumberPerSecond,
             upgradeGatherer,
@@ -31,7 +46,8 @@ const GlobalState = (props) => {
             resourseNumber,
             resoursePerSecond,
             clickUpdates,
-            second
+            second,
+            clickUpdatesPrice
         }
     }
 

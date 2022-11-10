@@ -3,7 +3,7 @@ import {
     Route,
     Routes
 } from "react-router-dom";
-import Debugger from "../components/Debugger";
+import Debugger from "../debugger/Debugger";
 import Home from "../pages/Home";
 
 const Router = () => {

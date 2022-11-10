@@ -1,6 +1,7 @@
 import { Button, Typography } from "@mui/material";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Upgrades from "../components/Upgrades";
 import GlobalStateContext from "../global/GlobalStateContext";
 
 const Home = () => {
@@ -16,9 +17,7 @@ const Home = () => {
             <Button onClick={globalData.addNumberPerClick}>Gather resourses</Button>
             <br />
             <br />
-            <Button onClick={globalData.upgradeGatherer}>Upgrade gatherer</Button>
-            <br />
-            <Button onClick={globalData.upgradeGatherPerSecond}>Upgrade gather per second</Button>
+            <Upgrades />
         </div>
     );
 }
