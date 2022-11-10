@@ -1,3 +1,5 @@
+import GlobalStateContext from "./GlobalStateContext";
+
 const GlobalState = (props) => {
     const globalData = []
 
@@ -7,3 +9,5 @@ const GlobalState = (props) => {
         </GlobalStateContext.Provider>
     )
 }
+
+export default GlobalState;
