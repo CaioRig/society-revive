@@ -1,38 +1,24 @@
 import { Button, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useGetSeconds from "../hooks/useGetSeconds";
+import GlobalStateContext from "../global/GlobalStateContext";
 
 const Home = () => {
     const navigate = useNavigate()
-    
-    const [resourseNumber, setResourseNumber] = useState(0)
-    const [resoursePerSecond, setResoursePerSecond] = useState(0)
-    const [clickUpdates, setClickUpdates] = useState(1)
-    const second = useGetSeconds()
 
-    const addNumberPerClick = () => setResourseNumber(resourseNumber + clickUpdates)
-
-    const addNumberPerSecond = () => setResourseNumber(resourseNumber + resoursePerSecond)
-
-    const upgradeGatherer = () => setClickUpdates(clickUpdates + 1)
-    const upgradeGatherPerSecond = () => setResoursePerSecond(resoursePerSecond + 1)
-
-    useEffect(() => {
-        addNumberPerSecond()
-    }, [second])
+    const globalData = useContext(GlobalStateContext)
 
     return (
         <div>
             <Typography color={"#ffffff"}>
-                Resourses: {resourseNumber}
+                Resourses: {globalData.resourseNumber}
             </Typography>
-            <Button onClick={addNumberPerClick}>Gather resourses</Button>
+            <Button onClick={globalData.addNumberPerClick}>Gather resourses</Button>
             <br />
             <br />
-            <Button onClick={upgradeGatherer}>Upgrade gatherer</Button>
+            <Button onClick={globalData.upgradeGatherer}>Upgrade gatherer</Button>
             <br />
-            <Button onClick={upgradeGatherPerSecond}>Upgrade gather per second</Button>
+            <Button onClick={globalData.upgradeGatherPerSecond}>Upgrade gather per second</Button>
         </div>
     );
 }
