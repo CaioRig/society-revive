@@ -1,1 +1,4 @@
-Open source idle game made on React.js. Currently has no build, as it is in it's early stages.
+Open source idle game made on React.js. 
+
+You can try an early build at:
+[NONAME]{http://abandoned-fan.surge.sh}
