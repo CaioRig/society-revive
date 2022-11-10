@@ -10,7 +10,7 @@ const Upgrades = () => {
             {
                 globalData.clickUpdatesPrice > globalData.resourseNumber
                     ?
-                    <Button color="error">Upgrade tools (Not enough supplies)</Button>
+                    <Button color="error">Upgrade tools</Button>
                     :
                     <Button onClick={globalData.upgradeGatherer}>Upgrade tools</Button>
             }
@@ -18,10 +18,10 @@ const Upgrades = () => {
             {
                 globalData.resoursePerSecondPrice > globalData.resourseNumber
                     ?
-                    <Button color="error">Find survivors (Not enough supplies)</Button>
+                    <Button color="error">Find survivors</Button>
                     :
                     <Button onClick={globalData.upgradeGatherPerSecond}>Find survivors</Button>
-            } 
+            }
         </>
     )
 }
