@@ -43,19 +43,19 @@ const Upgrades = () => {
                 <></>
                 :
                 <Container>
-                    <p>Housing: {globalData.survivorsQty}</p>
+                    <p>Housing: {globalData.housingQty}</p>
                     {
-                        globalData.findSurvivorPrice > globalData.resourseNumber
+                        globalData.buildHousingPrice > globalData.buildingMaterialNumber
                             ?
                             <Button color="error"
                                 title="Not enough resourses"
                             >Build Housing</Button>
                             :
                             <Button onClick={globalData.buildHousing}
-                                title="Search for survivors"
-                            >Find survivors</Button>
+                                title="Build Housing"
+                            >Build Housing</Button>
                     }
-                    <p>Cost: {globalData.findSurvivorPrice.toFixed(1)} Building Materials</p>
+                    <p>Cost: {globalData.buildHousingPrice.toFixed(1)} Building Materials</p>
                 </Container>
             }
 

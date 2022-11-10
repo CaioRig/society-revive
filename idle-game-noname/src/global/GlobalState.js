@@ -44,6 +44,8 @@ const GlobalState = (props) => {
             findSurvivorPrice,
             buildingMaterialNumber,
             survivorsQty,
+            housingQty,
+            buildHousingPrice,
             addNumberPerClick,
             buildHousing,
             findSurvivor,
