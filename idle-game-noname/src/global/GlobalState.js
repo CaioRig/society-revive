@@ -17,6 +17,7 @@ const GlobalState = (props) => {
 
     const second = useGetSeconds()
 
+    const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
     const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
     const addNumberPerClick = () => {
         setResourseNumber(resourseNumber + 1)
@@ -25,17 +26,20 @@ const GlobalState = (props) => {
     const findSurvivor = () => {
         setResourseNumber(resourseNumber - findSurvivorPrice)
         setSurvivorsQty(survivorsQty + 1)
+        setFindSurvivorPrice(findSurvivorPrice + (buildingMaterialPerSec * 1.25))
         setBuildingMaterialPerSec(buildingMaterialPerSec + (survivorsQty / 2))
     }
 
     const buildHousing = () => {
         setBuildingMaterialNumber(buildingMaterialNumber - buildHousingPrice)
         setHousingQty(housingQty + 1)
-        setBuildHousingPrice(buildHousingPrice + (housingQty / 2))
+        setBuildHousingPrice(buildHousingPrice + (craftingMaterialPerSec * 2))
+        setCraftingMaterialPerSec(craftingMaterialPerSec + (housingQty / 2))
     }
 
     useEffect(() => {
         addBuildingMaterialPerSecond()
+        addCraftingMaterialPerSecond()
     }, [second])
 
     const globalData = {
