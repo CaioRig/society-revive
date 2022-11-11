@@ -15,29 +15,43 @@ const GlobalState = (props) => {
     const [housingQty, setHousingQty] = useState(0)
     const [buildHousingPrice, setBuildHousingPrice] = useState(250)
 
+    const [resoursePerSec, setResoursePerSec] = useState(0)
+    const [toolsQty, setToolsQty] = useState(0)
+    const [toolsPrice, setToolsPrice] = useState(500)
+
     const second = useGetSeconds()
 
-    const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
-    const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
     const addNumberPerClick = () => {
         setResourseNumber(resourseNumber + 1)
     }
+    const addResoursePerSecond = () => setResourseNumber(resourseNumber + resoursePerSec)
+    const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
+    const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
 
     const findSurvivor = () => {
         setResourseNumber(resourseNumber - findSurvivorPrice)
-        setSurvivorsQty(survivorsQty + 1)
-        setFindSurvivorPrice(findSurvivorPrice + (buildingMaterialPerSec * 1.25))
-        setBuildingMaterialPerSec(buildingMaterialPerSec + (survivorsQty / 2))
+        setResoursePerSec(resoursePerSec + 0.1) // RESOURSE PRODUCTION PER SECOND
+        setSurvivorsQty(survivorsQty + 1) // SURVIVOR QUANTITY
+        setFindSurvivorPrice(findSurvivorPrice + (buildingMaterialPerSec * 1.25)) // PRICE
+        setBuildingMaterialPerSec(buildingMaterialPerSec + (survivorsQty / 2)) // BUILDING MATERIAL PRODUCTION PER SECOND
     }
 
     const buildHousing = () => {
         setBuildingMaterialNumber(buildingMaterialNumber - buildHousingPrice)
-        setHousingQty(housingQty + 1)
-        setBuildHousingPrice(buildHousingPrice + (craftingMaterialPerSec * 2))
-        setCraftingMaterialPerSec(craftingMaterialPerSec + (housingQty / 2))
+        setHousingQty(housingQty + 1) // HOUSE QUANTITY
+        setBuildHousingPrice(buildHousingPrice + (craftingMaterialPerSec * 2)) // PRICE
+        setCraftingMaterialPerSec(craftingMaterialPerSec + (housingQty / 2)) // CRAFTING MATERIAL PRODUCTION PER SECOND
+    }
+
+    const buildTools = () => {
+        setCraftingMaterialNumber(craftingMaterialNumber - toolsPrice)
+        setToolsQty(toolsQty + 1) // TOOLS QUANTITY
+        setToolsPrice(toolsPrice + (resoursePerSec * 2)) // PRICE
+        setResoursePerSec(resoursePerSec + (toolsQty / 2)) // RESOURSE PRODUCTION PER SEC
     }
 
     useEffect(() => {
+        addResoursePerSecond()
         addBuildingMaterialPerSecond()
         addCraftingMaterialPerSecond()
     }, [second])
@@ -45,15 +59,18 @@ const GlobalState = (props) => {
     const globalData = {
         Game: {
             resourseNumber,
-            findSurvivorPrice,
             buildingMaterialNumber,
+            craftingMaterialNumber,
+            findSurvivorPrice,
+            buildHousingPrice,
+            toolsPrice,
             survivorsQty,
             housingQty,
-            buildHousingPrice,
+            toolsQty,
             addNumberPerClick,
-            buildHousing,
             findSurvivor,
-            craftingMaterialNumber
+            buildHousing,
+            buildTools
         },
         Debugger: {
             resourseNumber,

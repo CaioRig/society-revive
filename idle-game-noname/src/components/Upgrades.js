@@ -9,7 +9,7 @@ const Upgrades = () => {
     return (
         <Container
             sx={{
-                display: "flex"
+                display: "flex",
             }}
         >
             {/* { CLICK UPGRADES ENDS UP BEING TOO OP
@@ -29,7 +29,7 @@ const Upgrades = () => {
                         ?
                         <Button color="error"
                             title="Not enough resourses"
-                        >Find survivors</Button>
+                        >Find survivors </Button>
                         :
                         <Button onClick={globalData.findSurvivor}
                             title="Search for survivors"
@@ -56,6 +56,27 @@ const Upgrades = () => {
                             >Build Housing</Button>
                     }
                     <p>Cost: {globalData.buildHousingPrice.toFixed(1)} Building Materials</p>
+                </Container>
+            }
+
+            {globalData.housingQty < 5
+                ?
+                <></>
+                :
+                <Container>
+                    <p>Tools: {globalData.toolsQty}</p>
+                    {
+                        globalData.toolsPrice > globalData.craftingMaterialNumber
+                            ?
+                            <Button color="error"
+                                title="Not enough resourses"
+                            >Craft Tools</Button>
+                            :
+                            <Button onClick={globalData.buildTools}
+                                title="Build Tools"
+                            >Craft Tools</Button>
+                    }
+                    <p>Cost: {globalData.toolsPrice.toFixed(1)} Crafting Materials</p>
                 </Container>
             }
 
