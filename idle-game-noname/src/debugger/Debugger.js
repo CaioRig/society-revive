@@ -18,6 +18,7 @@ const Debugger = () => {
             <>
                 <p>resourseNumber: {globalData.resourseNumber}</p>
                 <p>resoursePerSecond: {globalData.resoursePerSecond}</p>
+                <p>buildingMaterialNumber: {globalData.buildingMaterialNumber}</p>
                 <p>clickUpdates: {globalData.clickUpdates}</p>
                 <p>Second: {globalData.second}</p>
                 <p>clickUpdatesPrice: {globalData.clickUpdatesPrice}</p>

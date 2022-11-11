@@ -1,6 +1,7 @@
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Gatherers from "../components/Gatherers";
 import Upgrades from "../components/Upgrades";
 import GlobalStateContext from "../global/GlobalStateContext";
 
@@ -12,9 +13,27 @@ const Home = () => {
     return (
         <div>
             <Typography color={"#ffffff"}>
-                Resourses: {globalData.resourseNumber}
+                Resourses: {globalData.resourseNumber.toFixed(1)}
             </Typography>
-            <Button onClick={globalData.addNumberPerClick}>Gather resourses</Button>
+            {
+                globalData.buildingMaterialNumber === 0
+                ?
+                <></>
+                :
+                <Typography color={"#ffffff"}>
+                Building Materials: {globalData.buildingMaterialNumber.toFixed(1)}
+            </Typography>
+            }
+            {
+                globalData.craftingMaterialNumber === 0
+                ?
+                <></>
+                :
+                <Typography color={"#ffffff"}>
+                Crafting Materials: {globalData.craftingMaterialNumber.toFixed(1)}
+            </Typography>
+            }
+            <Gatherers />
             <br />
             <br />
             <Upgrades />
