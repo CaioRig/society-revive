@@ -38,46 +38,48 @@ const Upgrades = () => {
                 <p>Cost: {globalData.findSurvivorPrice.toFixed(1)} Resourses</p>
             </Container>
 
-            {globalData.survivorsQty < 5
-                ?
-                <></>
-                :
-                <Container>
-                    <p>Housing: {globalData.housingQty}</p>
-                    {
-                        globalData.buildHousingPrice > globalData.buildingMaterialNumber
-                            ?
-                            <Button color="error"
-                                title="Not enough resourses"
-                            >Build Housing</Button>
-                            :
-                            <Button onClick={globalData.buildHousing}
-                                title="Build Housing"
-                            >Build Housing</Button>
-                    }
-                    <p>Cost: {globalData.buildHousingPrice.toFixed(1)} Building Materials</p>
-                </Container>
+            { // BUILD HOUSING
+                globalData.survivorsQty < 5
+                    ?
+                    <></>
+                    :
+                    <Container>
+                        <p>Housing: {globalData.housingQty}</p>
+                        {
+                            globalData.buildHousingPrice > globalData.buildingMaterialNumber
+                                ?
+                                <Button color="error"
+                                    title="Not enough resourses"
+                                >Build Housing</Button>
+                                :
+                                <Button onClick={globalData.buildHousing}
+                                    title="Build Housing"
+                                >Build Housing</Button>
+                        }
+                        <p>Cost: {globalData.buildHousingPrice.toFixed(1)} Building Materials</p>
+                    </Container>
             }
 
-            {globalData.housingQty < 5
-                ?
-                <></>
-                :
-                <Container>
-                    <p>Tools: {globalData.toolsQty}</p>
-                    {
-                        globalData.toolsPrice > globalData.craftingMaterialNumber
-                            ?
-                            <Button color="error"
-                                title="Not enough resourses"
-                            >Craft Tools</Button>
-                            :
-                            <Button onClick={globalData.buildTools}
-                                title="Build Tools"
-                            >Craft Tools</Button>
-                    }
-                    <p>Cost: {globalData.toolsPrice.toFixed(1)} Crafting Materials</p>
-                </Container>
+            {   // CRAFT TOOLS
+                globalData.housingQty < 5
+                    ?
+                    <></>
+                    :
+                    <Container>
+                        <p>Tools: {globalData.toolsQty}</p>
+                        {
+                            globalData.toolsPrice > globalData.craftingMaterialNumber
+                                ?
+                                <Button color="error"
+                                    title="Not enough resourses"
+                                >Craft Tools</Button>
+                                :
+                                <Button onClick={globalData.buildTools}
+                                    title="Build Tools"
+                                >Craft Tools</Button>
+                        }
+                        <p>Cost: {globalData.toolsPrice.toFixed(1)} Crafting Materials</p>
+                    </Container>
             }
 
         </Container>
