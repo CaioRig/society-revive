@@ -41,6 +41,7 @@ const GlobalState = (props) => {
         setHousingQty(housingQty + 1) // HOUSE QUANTITY
         setBuildHousingPrice(buildHousingPrice + (craftingMaterialPerSec * 2)) // PRICE
         setCraftingMaterialPerSec(craftingMaterialPerSec + 0.1) // CRAFTING MATERIAL PRODUCTION PER SECOND
+        setBuildingMaterialPerSec(buildingMaterialPerSec + 0.5) // BUILDING MATERIAL PRODUCTION PER SECOND
     }
 
     const buildTools = () => {
@@ -48,6 +49,7 @@ const GlobalState = (props) => {
         setToolsQty(toolsQty + 1) // TOOLS QUANTITY
         setToolsPrice(toolsPrice + (resoursePerSec * 2)) // PRICE
         setResoursePerSec(resoursePerSec + 1) // RESOURSE PRODUCTION PER SEC
+        setCraftingMaterialPerSec(craftingMaterialPerSec + 0.5) // CRAFTING MATERIAL PRODUCTION PER SECOND
     }
 
     useEffect(() => {
@@ -71,11 +73,6 @@ const GlobalState = (props) => {
             findSurvivor,
             buildHousing,
             buildTools
-        },
-        Debugger: {
-            resourseNumber,
-            buildingMaterialNumber,
-            second
         }
     }
 

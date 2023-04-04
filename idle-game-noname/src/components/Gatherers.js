@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { Box, Button } from "@mui/material";
 import GlobalStateContext from "../global/GlobalStateContext"
-import ForestIcon from '@mui/icons-material/Forest';
+import ParkIcon from '@mui/icons-material/Park';
 
 const Gatherers = () => {
     const globalData = useContext(GlobalStateContext).Game
@@ -12,7 +12,7 @@ const Gatherers = () => {
                 variant="outlined"
                 size="large"
                 title="Click to gather resources"
-            >Gather resources <ForestIcon /></Button>
+            ><ParkIcon /> Gather resources </Button>
         </Box>
     )
 }
