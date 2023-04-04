@@ -5,15 +5,15 @@ import Survivors from "../components/Actions/Survivors";
 import Houses from "../components/Actions/Houses";
 import Tools from "../components/Actions/Tools";
 import Resources from "../components/Resources";
-import { Container } from "@mui/system";
+
 
 const Home = () => {
     const navigate = useNavigate()
 
     return (
         <div>
-                <Resources />
-                <Gatherers />
+            <Resources />
+            <Gatherers />
             <br />
             <br />
             <Survivors />

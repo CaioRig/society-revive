@@ -3,31 +3,32 @@ import { useState, useEffect } from "react";
 import useGetSeconds from "../hooks/useGetSeconds";
 
 const GlobalState = (props) => {
+    // STOCK NUMBERS
     const [resourseNumber, setResourseNumber] = useState(0)
     const [buildingMaterialNumber, setBuildingMaterialNumber] = useState(0)
     const [craftingMaterialNumber, setCraftingMaterialNumber] = useState(0)
 
-    const [buildingMaterialPerSec, setBuildingMaterialPerSec] = useState(0)
-    const [survivorsQty, setSurvivorsQty] = useState(0)
-    const [findSurvivorPrice, setFindSurvivorPrice] = useState(25)
-
-    const [craftingMaterialPerSec, setCraftingMaterialPerSec] = useState(0)
-    const [housingQty, setHousingQty] = useState(0)
-    const [buildHousingPrice, setBuildHousingPrice] = useState(250)
-
+    // PRODUCTION PER SECOND
     const [resoursePerSec, setResoursePerSec] = useState(0)
+    const [buildingMaterialPerSec, setBuildingMaterialPerSec] = useState(0)
+    const [craftingMaterialPerSec, setCraftingMaterialPerSec] = useState(0)
+
+    // ACTION QUANTITY
+    const [survivorsQty, setSurvivorsQty] = useState(0)
+    const [housingQty, setHousingQty] = useState(0)
     const [toolsQty, setToolsQty] = useState(0)
+
+    // PRICES
+    const [findSurvivorPrice, setFindSurvivorPrice] = useState(25)
+    const [buildHousingPrice, setBuildHousingPrice] = useState(250)
     const [toolsPrice, setToolsPrice] = useState(500)
 
-    const second = useGetSeconds()
-
+    // GATHER PER CLICK
     const addNumberPerClick = () => {
         setResourseNumber(resourseNumber + 1)
     }
-    const addResoursePerSecond = () => setResourseNumber(resourseNumber + resoursePerSec)
-    const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
-    const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
-
+    
+    // ACTION FUNCTIONS
     const findSurvivor = () => {
         setResourseNumber(resourseNumber - findSurvivorPrice)
         setResoursePerSec(resoursePerSec + 0.1) // RESOURSE PRODUCTION PER SECOND
@@ -52,6 +53,12 @@ const GlobalState = (props) => {
         setCraftingMaterialPerSec(craftingMaterialPerSec + 0.5) // CRAFTING MATERIAL PRODUCTION PER SECOND
     }
 
+    // VALUE UPDATE PER SECOND
+    const addResoursePerSecond = () => setResourseNumber(resourseNumber + resoursePerSec)
+    const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
+    const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
+
+    const second = useGetSeconds()
     useEffect(() => {
         addResoursePerSecond()
         addBuildingMaterialPerSecond()
