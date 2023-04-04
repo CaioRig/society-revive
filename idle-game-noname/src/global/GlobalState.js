@@ -40,14 +40,14 @@ const GlobalState = (props) => {
         setBuildingMaterialNumber(buildingMaterialNumber - buildHousingPrice)
         setHousingQty(housingQty + 1) // HOUSE QUANTITY
         setBuildHousingPrice(buildHousingPrice + (craftingMaterialPerSec * 2)) // PRICE
-        setCraftingMaterialPerSec(craftingMaterialPerSec + (housingQty / 2)) // CRAFTING MATERIAL PRODUCTION PER SECOND
+        setCraftingMaterialPerSec(craftingMaterialPerSec + 0.1) // CRAFTING MATERIAL PRODUCTION PER SECOND
     }
 
     const buildTools = () => {
         setCraftingMaterialNumber(craftingMaterialNumber - toolsPrice)
         setToolsQty(toolsQty + 1) // TOOLS QUANTITY
         setToolsPrice(toolsPrice + (resoursePerSec * 2)) // PRICE
-        setResoursePerSec(resoursePerSec + (toolsQty / 2)) // RESOURSE PRODUCTION PER SEC
+        setResoursePerSec(resoursePerSec + 1) // RESOURSE PRODUCTION PER SEC
     }
 
     useEffect(() => {

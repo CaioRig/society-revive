@@ -3,6 +3,8 @@ import GlobalStateContext from "../global/GlobalStateContext"
 import { Button } from "@mui/material"
 import { Container } from "@mui/system"
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import CottageIcon from '@mui/icons-material/Cottage';
+import ConstructionIcon from '@mui/icons-material/Construction';
 
 const Upgrades = () => {
     const globalData = useContext(GlobalStateContext).Game
@@ -30,12 +32,12 @@ const Upgrades = () => {
                         ?
                         <Button color="error"
                             variant="outlined"
-                            title="Not enough resourses"
+                            title="Not enough resources"
                         >Find survivors <AccessibilityNewIcon /></Button>
                         :
                         <Button onClick={globalData.findSurvivor}
                             variant="outlined"
-                            title={`Search for survivors: \n+1 Survivor(s)\n+0.1 Building Materials\n+0.1 Resourses`}
+                            title={`Search for survivors: \n+1 Survivor(s)\n+0.1/s Building Materials\n+0.1/s Resources`}
                         >Find survivors <AccessibilityNewIcon /></Button>
                 }
                 <p>Cost: {globalData.findSurvivorPrice.toFixed(1)} Resourses</p>
@@ -47,19 +49,19 @@ const Upgrades = () => {
                     <></>
                     :
                     <Container>
-                        <p>Housing: {globalData.housingQty}</p>
+                        <p>Houses: {globalData.housingQty}</p>
                         {
                             globalData.buildHousingPrice > globalData.buildingMaterialNumber
                                 ?
                                 <Button color="error"
                                     variant="outlined"
-                                    title="Not enough resourses"
-                                >Build Housing</Button>
+                                    title="Not enough building materials"
+                                >Build Housing <CottageIcon /></Button>
                                 :
                                 <Button onClick={globalData.buildHousing}
                                     variant="outlined"
-                                    title="Build Housing"
-                                >Build Housing</Button>
+                                    title= {`Build Housing: \n+1 House(s) \n+0.1/s Crafting Materials`}
+                                >Build Housing <CottageIcon /></Button>
                         }
                         <p>Cost: {globalData.buildHousingPrice.toFixed(1)} Building Materials</p>
                     </Container>
@@ -77,13 +79,13 @@ const Upgrades = () => {
                                 ?
                                 <Button color="error"
                                     variant="outlined"
-                                    title="Not enough resourses"
-                                >Craft Tools</Button>
+                                    title="Not enough crafting materials"
+                                >Craft Tools <ConstructionIcon/></Button>
                                 :
                                 <Button onClick={globalData.buildTools}
                                     variant="outlined"
                                     title="Build Tools"
-                                >Craft Tools</Button>
+                                >Craft Tools <ConstructionIcon/></Button>
                         }
                         <p>Cost: {globalData.toolsPrice.toFixed(1)} Crafting Materials</p>
                     </Container>
