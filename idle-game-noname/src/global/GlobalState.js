@@ -32,8 +32,8 @@ const GlobalState = (props) => {
         setResourseNumber(resourseNumber - findSurvivorPrice)
         setResoursePerSec(resoursePerSec + 0.1) // RESOURSE PRODUCTION PER SECOND
         setSurvivorsQty(survivorsQty + 1) // SURVIVOR QUANTITY
-        setFindSurvivorPrice(findSurvivorPrice + (buildingMaterialPerSec * 1.25)) // PRICE
-        setBuildingMaterialPerSec(buildingMaterialPerSec + (survivorsQty / 2)) // BUILDING MATERIAL PRODUCTION PER SECOND
+        setFindSurvivorPrice(findSurvivorPrice + (resoursePerSec * 1.25)) // PRICE
+        setBuildingMaterialPerSec(buildingMaterialPerSec + 0.1) // BUILDING MATERIAL PRODUCTION PER SECOND
     }
 
     const buildHousing = () => {

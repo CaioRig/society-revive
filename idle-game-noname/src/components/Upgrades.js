@@ -2,6 +2,7 @@ import { useContext } from "react"
 import GlobalStateContext from "../global/GlobalStateContext"
 import { Button } from "@mui/material"
 import { Container } from "@mui/system"
+import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 
 const Upgrades = () => {
     const globalData = useContext(GlobalStateContext).Game
@@ -28,12 +29,14 @@ const Upgrades = () => {
                     globalData.findSurvivorPrice > globalData.resourseNumber
                         ?
                         <Button color="error"
+                            variant="outlined"
                             title="Not enough resourses"
-                        >Find survivors </Button>
+                        >Find survivors <AccessibilityNewIcon /></Button>
                         :
                         <Button onClick={globalData.findSurvivor}
-                            title="Search for survivors"
-                        >Find survivors</Button>
+                            variant="outlined"
+                            title={`Search for survivors: \n+1 Survivor(s)\n+0.1 Building Materials\n+0.1 Resourses`}
+                        >Find survivors <AccessibilityNewIcon /></Button>
                 }
                 <p>Cost: {globalData.findSurvivorPrice.toFixed(1)} Resourses</p>
             </Container>
@@ -49,10 +52,12 @@ const Upgrades = () => {
                             globalData.buildHousingPrice > globalData.buildingMaterialNumber
                                 ?
                                 <Button color="error"
+                                    variant="outlined"
                                     title="Not enough resourses"
                                 >Build Housing</Button>
                                 :
                                 <Button onClick={globalData.buildHousing}
+                                    variant="outlined"
                                     title="Build Housing"
                                 >Build Housing</Button>
                         }
@@ -71,10 +76,12 @@ const Upgrades = () => {
                             globalData.toolsPrice > globalData.craftingMaterialNumber
                                 ?
                                 <Button color="error"
+                                    variant="outlined"
                                     title="Not enough resourses"
                                 >Craft Tools</Button>
                                 :
                                 <Button onClick={globalData.buildTools}
+                                    variant="outlined"
                                     title="Build Tools"
                                 >Craft Tools</Button>
                         }

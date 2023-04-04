@@ -12,26 +12,27 @@ const Home = () => {
 
     return (
         <div>
+
             <Typography color={"#ffffff"}>
-                Resourses: {globalData.resourseNumber.toFixed(1)}
+                Resources: {globalData.resourseNumber.toFixed(1)}
             </Typography>
             {
                 globalData.buildingMaterialNumber === 0
-                ?
-                <></>
-                :
-                <Typography color={"#ffffff"}>
-                Building Materials: {globalData.buildingMaterialNumber.toFixed(1)}
-            </Typography>
+                    ?
+                    <></>
+                    :
+                    <Typography color={"#ffffff"}>
+                        Building Materials: {globalData.buildingMaterialNumber.toFixed(1)}
+                    </Typography>
             }
             {
                 globalData.craftingMaterialNumber === 0
-                ?
-                <></>
-                :
-                <Typography color={"#ffffff"}>
-                Crafting Materials: {globalData.craftingMaterialNumber.toFixed(1)}
-            </Typography>
+                    ?
+                    <></>
+                    :
+                    <Typography color={"#ffffff"}>
+                        Crafting Materials: {globalData.craftingMaterialNumber.toFixed(1)}
+                    </Typography>
             }
             <Gatherers />
             <br />
