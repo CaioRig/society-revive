@@ -7,33 +7,37 @@ import CottageIcon from '@mui/icons-material/Cottage';
 import HomeIcon from '@mui/icons-material/Home';
 
 const Houses = () => {
-    const globalData = useContext(GlobalStateContext).Game
+    const stock = useContext(GlobalStateContext).Stock
+    const action = useContext(GlobalStateContext).Action
+    const modifiers = useContext(GlobalStateContext).ActionModifier.House
+    const prices = useContext(GlobalStateContext).ActionPrice
+    const qty = useContext(GlobalStateContext).ActionQty
 
     return (
         <Container>
             { // BUILD HOUSING
-                globalData.survivorsQty < 5
+                qty.survivorsQty < 5
                     ?
                     <></>
                     :
                     <Container>
                         <Typography title="Houses">
-                            <HomeIcon /> {globalData.housingQty}
+                            <HomeIcon /> {qty.housingQty}
                         </Typography>
                         {
-                            globalData.buildHousingPrice > globalData.buildingMaterialNumber
+                            prices.buildHousingPrice > stock.buildingMaterialNumber
                                 ?
                                 <Button color="error"
                                     variant="outlined"
-                                    title={`Not enough building materials \n+1 House(s) \n+0.5/s Building Materials \n+0.1/s Crafting Materials`}
+                                    title={`Not enough building materials \n+1 House(s) \n+${modifiers.housingBuildingModifier}/s Building Materials \n+${modifiers.housingCraftingModifier}/s Crafting Materials`}
                                 ><CottageIcon /> Build Housings</Button>
                                 :
-                                <Button onClick={globalData.buildHousing}
+                                <Button onClick={action.buildHousing}
                                     variant="outlined"
-                                    title={`Build Housing: \n+1 House(s) \n+0.5/s Building Materials \n+0.1/s Crafting Materials`}
+                                    title={`Build Housing: \n+1 House(s) \n+${modifiers.housingBuildingModifier}/s Building Materials \n+${modifiers.housingCraftingModifier}/s Crafting Materials`}
                                 ><CottageIcon /> Build Housings</Button>
                         }
-                        <p>Cost: {globalData.buildHousingPrice.toFixed(0)} Building Materials</p>
+                        <p>Cost: {prices.buildHousingPrice.toFixed(0)} Building Materials</p>
                     </Container>
             }
         </Container>

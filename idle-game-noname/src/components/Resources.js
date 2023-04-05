@@ -9,7 +9,7 @@ import HandymanIcon from '@mui/icons-material/Handyman';
 import { Container } from "@mui/system";
 
 const Resources = () => {
-    const globalData = useContext(GlobalStateContext).Game
+    const stock = useContext(GlobalStateContext).Stock
 
     return (
         <Container>
@@ -17,19 +17,19 @@ const Resources = () => {
                 color={"#ffffff"}
                 title="Resources"
             >
-                <ForestIcon /> {globalData.resourseNumber.toFixed(0)}
+                <ForestIcon /> {stock.resourseNumber.toFixed(0)}
             </Typography>
             <Typography
                 color={"#ffffff"}
                 title="Building Materials"
             >
-                <ConstructionIcon /> {globalData.buildingMaterialNumber.toFixed(0)}
+                <ConstructionIcon /> {stock.buildingMaterialNumber.toFixed(0)}
             </Typography>
             <Typography
                 color={"#ffffff"}
                 title="Crafting Materials"
             >
-                <HandymanIcon /> {globalData.craftingMaterialNumber.toFixed(0)}
+                <HandymanIcon /> {stock.craftingMaterialNumber.toFixed(0)}
             </Typography>
         </Container>
     );

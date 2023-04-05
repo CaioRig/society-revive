@@ -9,54 +9,58 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 
 const Survivors = () => {
-    const globalData = useContext(GlobalStateContext).Game
+    const stock = useContext(GlobalStateContext).Stock
+    const action = useContext(GlobalStateContext).Action
+    const modifiers = useContext(GlobalStateContext).ActionModifier.Survivor
+    const prices = useContext(GlobalStateContext).ActionPrice
+    const qty = useContext(GlobalStateContext).ActionQty
 
     return (
         <Container sx={{ display: "flex" }}>
             {   // FIND SURVIVORS
                 <Container>
                     <Typography title="Survivors">
-                        <PersonIcon /> {globalData.survivorsQty}
+                        <PersonIcon /> {qty.survivorsQty}
                     </Typography>
                     {
-                        globalData.findSurvivorPrice > globalData.resourseNumber
+                        prices.findSurvivorPrice > stock.resourseNumber
                             ?
                             <Button color="error"
                                 variant="outlined"
-                                title={`Not enough resources \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
+                                title={`Not enough resources \n+1 Survivor(s)\n+${modifiers.survivorResourceModifier}/s Resources\n+${modifiers.survivorBuildingModifier}/s Building Materials`}
                             ><AccessibilityNewIcon /> Find survivors</Button>
                             :
-                            <Button onClick={globalData.findSurvivor}
+                            <Button onClick={action.findSurvivor}
                                 variant="outlined"
-                                title={`Search for survivors: \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
+                                title={`Search for survivors: \n+1 Survivor(s)\n+${modifiers.survivorResourceModifier}/s Resources\n+${modifiers.survivorBuildingModifier}/s Building Materials`}
                             ><AccessibilityNewIcon /> Find survivors</Button>
                     }
-                    <p>Cost: {globalData.findSurvivorPrice.toFixed(0)} Resources</p>
+                    <p>Cost: {prices.findSurvivorPrice.toFixed(0)} Resources</p>
                 </Container>
             }
             {   // EQUIP SURVIVORS
-                globalData.toolsQty < 5
+                qty.toolsQty < 5
                     ?
                     <></>
                     :
                     <Container>
                         <Typography>
-                            <PersonAddAlt1Icon /> {globalData.survivorsEquipQty}
+                            <PersonAddAlt1Icon /> {qty.survivorsEquipQty}
                         </Typography>
                         {
-                            globalData.equipSurvivorPrice > globalData.craftingMaterialNumber
+                            prices.equipSurvivorPrice > stock.craftingMaterialNumber
                                 ?
                                 <Button color="error"
                                     variant="outlined"
-                                    title={`Not enough resources \n+1 Equipped Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
+                                    title={`Not enough resources \n+1 Equipped Survivor(s)\n+${modifiers.equipSurvivorResourceModifier}/s Resources\n+${modifiers.equipSurvivorBuildingModifier}/s Building Materials\n+${modifiers.equipSurvivorCraftingModifier}/s Crafing Materials`}
                                 ><EmojiPeopleIcon /> Equip survivors</Button>
                                 :
-                                <Button onClick={globalData.equipSurvivor}
+                                <Button onClick={action.equipSurvivor}
                                     variant="outlined"
-                                    title={`Equip survivors with tools: \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
+                                    title={`Equip survivors with tools: \n+1 Equiped Survivor(s)\n+${modifiers.equipSurvivorResourceModifier}/s Resources\n+${modifiers.equipSurvivorBuildingModifier}/s Building Materials\n+${modifiers.equipSurvivorCraftingModifier}/s Crafing Materials`}
                                 ><EmojiPeopleIcon /> Equip survivors</Button>
                         }
-                        <Typography>Cost: {globalData.equipSurvivorPrice.toFixed(0)} Crafting Materials</Typography>
+                        <Typography>Cost: {prices.equipSurvivorPrice.toFixed(0)} Crafting Materials</Typography>
                     </Container>
             }
         </Container>
