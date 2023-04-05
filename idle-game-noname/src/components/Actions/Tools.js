@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { Button } from "@mui/material"
+import { Button, Typography } from "@mui/material"
 import { Container } from "@mui/system"
 
 import ConstructionIcon from '@mui/icons-material/Construction';
@@ -21,7 +21,9 @@ const Tools = () => {
                     <></>
                     :
                     <Container>
-                        <p><HardwareIcon /> {qty.toolsQty}</p>
+                        <Typography title="Tools">
+                            <HardwareIcon /> {qty.toolsQty}
+                        </Typography>
                         {
                             prices.toolsPrice > stock.craftingMaterialNumber
                                 ?
