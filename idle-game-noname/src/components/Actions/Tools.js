@@ -2,7 +2,9 @@ import { useContext } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext"
 import { Button } from "@mui/material"
 import { Container } from "@mui/system"
+
 import ConstructionIcon from '@mui/icons-material/Construction';
+import HardwareIcon from '@mui/icons-material/Hardware';
 
 const Tools = () => {
     const globalData = useContext(GlobalStateContext).Game
@@ -15,7 +17,7 @@ const Tools = () => {
                     <></>
                     :
                     <Container>
-                        <p>Tools: {globalData.toolsQty}</p>
+                        <p><HardwareIcon /> {globalData.toolsQty}</p>
                         {
                             globalData.toolsPrice > globalData.craftingMaterialNumber
                                 ?

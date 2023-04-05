@@ -13,6 +13,12 @@ const Gatherers = () => {
                 size="large"
                 title="Click to gather resources"
             ><ParkIcon /> Gather resources </Button>
+            
+            <Button onClick={globalData.debugClick}
+                variant="outlined"
+                size="large"
+                title="Click to gather resources"
+            ><ParkIcon /> DEBUG </Button>
         </Box>
     )
 }

@@ -12,7 +12,7 @@ const Houses = () => {
     return (
         <Container>
             { // BUILD HOUSING
-                globalData.survivorsQty < 10
+                globalData.survivorsQty < 5
                     ?
                     <></>
                     :
