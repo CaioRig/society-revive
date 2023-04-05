@@ -13,29 +13,24 @@ const Resources = () => {
 
     return (
         <Container>
-            <Typography title="Resources" color={"#ffffff"}>
-                <ForestIcon /> {globalData.resourseNumber.toFixed(1)}
+            <Typography
+                color={"#ffffff"}
+                title="Resources"
+            >
+                <ForestIcon /> {globalData.resourseNumber.toFixed(0)}
             </Typography>
-            {
-                globalData.buildingMaterialNumber === 0
-                    ?
-                    <></>
-                    :
-                    <Typography color={"#ffffff"}
-                        title="Building Materials">
-                        <ConstructionIcon /> {globalData.buildingMaterialNumber.toFixed(1)}
-                    </Typography>
-            }
-            {
-                globalData.craftingMaterialNumber === 0
-                    ?
-                    <></>
-                    :
-                    <Typography color={"#ffffff"}
-                        title="Crafting Materials">
-                        <HandymanIcon /> {globalData.craftingMaterialNumber.toFixed(1)}
-                    </Typography>
-            }
+            <Typography
+                color={"#ffffff"}
+                title="Building Materials"
+            >
+                <ConstructionIcon /> {globalData.buildingMaterialNumber.toFixed(0)}
+            </Typography>
+            <Typography
+                color={"#ffffff"}
+                title="Crafting Materials"
+            >
+                <HandymanIcon /> {globalData.craftingMaterialNumber.toFixed(0)}
+            </Typography>
         </Container>
     );
 }

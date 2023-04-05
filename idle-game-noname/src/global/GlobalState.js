@@ -19,9 +19,9 @@ const GlobalState = (props) => {
     const [toolsQty, setToolsQty] = useState(0)
 
     // PRICES
-    const [findSurvivorPrice, setFindSurvivorPrice] = useState(25)
-    const [buildHousingPrice, setBuildHousingPrice] = useState(250)
-    const [toolsPrice, setToolsPrice] = useState(500)
+    const [findSurvivorPrice, setFindSurvivorPrice] = useState(50)
+    const [buildHousingPrice, setBuildHousingPrice] = useState(1000)
+    const [toolsPrice, setToolsPrice] = useState(1500)
 
     // GATHER PER CLICK
     const addNumberPerClick = () => {
@@ -29,28 +29,32 @@ const GlobalState = (props) => {
     }
     
     // ACTION FUNCTIONS
+
+    // FIND SURVIVORS
     const findSurvivor = () => {
         setResourseNumber(resourseNumber - findSurvivorPrice)
-        setResoursePerSec(resoursePerSec + 0.1) // RESOURSE PRODUCTION PER SECOND
+        setResoursePerSec(resoursePerSec + 1) // RESOURSE PRODUCTION PER SECOND
         setSurvivorsQty(survivorsQty + 1) // SURVIVOR QUANTITY
-        setFindSurvivorPrice(findSurvivorPrice + (resoursePerSec * 1.25)) // PRICE
-        setBuildingMaterialPerSec(buildingMaterialPerSec + 0.1) // BUILDING MATERIAL PRODUCTION PER SECOND
+        setFindSurvivorPrice(findSurvivorPrice + (resoursePerSec * 2)) // PRICE
+        setBuildingMaterialPerSec(buildingMaterialPerSec + 1) // BUILDING MATERIAL PRODUCTION PER SECOND
     }
 
+    // BUILD HOUSING
     const buildHousing = () => {
         setBuildingMaterialNumber(buildingMaterialNumber - buildHousingPrice)
         setHousingQty(housingQty + 1) // HOUSE QUANTITY
         setBuildHousingPrice(buildHousingPrice + (craftingMaterialPerSec * 2)) // PRICE
-        setCraftingMaterialPerSec(craftingMaterialPerSec + 0.1) // CRAFTING MATERIAL PRODUCTION PER SECOND
-        setBuildingMaterialPerSec(buildingMaterialPerSec + 0.5) // BUILDING MATERIAL PRODUCTION PER SECOND
+        setCraftingMaterialPerSec(craftingMaterialPerSec + 1) // CRAFTING MATERIAL PRODUCTION PER SECOND
+        setBuildingMaterialPerSec(buildingMaterialPerSec + 1) // BUILDING MATERIAL PRODUCTION PER SECOND
     }
 
+    // BUILD TOOLS
     const buildTools = () => {
         setCraftingMaterialNumber(craftingMaterialNumber - toolsPrice)
         setToolsQty(toolsQty + 1) // TOOLS QUANTITY
         setToolsPrice(toolsPrice + (resoursePerSec * 2)) // PRICE
-        setResoursePerSec(resoursePerSec + 1) // RESOURSE PRODUCTION PER SEC
-        setCraftingMaterialPerSec(craftingMaterialPerSec + 0.5) // CRAFTING MATERIAL PRODUCTION PER SECOND
+        setResoursePerSec(resoursePerSec + 2) // RESOURSE PRODUCTION PER SEC
+        setCraftingMaterialPerSec(craftingMaterialPerSec + 1) // CRAFTING MATERIAL PRODUCTION PER SECOND
     }
 
     // VALUE UPDATE PER SECOND

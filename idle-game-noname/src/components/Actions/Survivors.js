@@ -14,7 +14,7 @@ const Survivors = () => {
         <Container sx={{ display: "flex" }}>
             {   // FIND SURVIVORS
                 <Container>
-                    <Typography>
+                    <Typography title="Survivors">
                         <PersonIcon /> {globalData.survivorsQty}
                     </Typography>
                     {
@@ -22,7 +22,7 @@ const Survivors = () => {
                             ?
                             <Button color="error"
                                 variant="outlined"
-                                title="Not enough resources"
+                                title={`Not enough resources \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
                             ><AccessibilityNewIcon /> Find survivors</Button>
                             :
                             <Button onClick={globalData.findSurvivor}
@@ -30,10 +30,10 @@ const Survivors = () => {
                                 title={`Search for survivors: \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
                             ><AccessibilityNewIcon /> Find survivors</Button>
                     }
-                    <p>Cost: {globalData.findSurvivorPrice.toFixed(1)} Resourses</p>
+                    <p>Cost: {globalData.findSurvivorPrice.toFixed(0)} Resources</p>
                 </Container>
             }
-            {   // EQUIP SURVIVORS
+            {/* {   // EQUIP SURVIVORS
                 globalData.toolsQty < 5
                     ?
                     <></>
@@ -47,17 +47,17 @@ const Survivors = () => {
                                 ?
                                 <Button color="error"
                                     variant="outlined"
-                                    title="Not enough resources"
-                                ><AccessibilityNewIcon /> Find survivors</Button>
+                                    title={`Not enough resources \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
+                                ><AccessibilityNewIcon /> Equip survivors</Button>
                                 :
                                 <Button onClick={globalData.findSurvivor}
                                     variant="outlined"
                                     title={`Search for survivors: \n+1 Survivor(s)\n+0.1/s Resources\n+0.1/s Building Materials`}
-                                ><AccessibilityNewIcon /> Find survivors</Button>
+                                ><AccessibilityNewIcon /> Equip survivors</Button>
                         }
-                        <p>Cost: {globalData.findSurvivorPrice.toFixed(1)} Resourses</p>
+                        <p>Cost: {globalData.findSurvivorPrice.toFixed(0)} Resourses</p>
                     </Container>
-            }
+            } */}
         </Container>
     )
 }

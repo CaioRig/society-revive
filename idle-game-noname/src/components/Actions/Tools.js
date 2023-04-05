@@ -10,7 +10,7 @@ const Tools = () => {
     return (
         <Container>
             {   // CRAFT TOOLS
-                globalData.housingQty < 10
+                globalData.housingQty < 5
                     ?
                     <></>
                     :
@@ -21,7 +21,7 @@ const Tools = () => {
                                 ?
                                 <Button color="error"
                                     variant="outlined"
-                                    title="Not enough crafting materials"
+                                    title={`Not enough crafting materials \n+1 Tool(s) \n+1/s Resources \n+0.5/s Crafting Materials`}
                                 ><ConstructionIcon /> Craft Tools</Button>
                                 :
                                 <Button onClick={globalData.buildTools}
@@ -29,7 +29,7 @@ const Tools = () => {
                                     title={`Build Tools: \n+1 Tool(s) \n+1/s Resources \n+0.5/s Crafting Materials`}
                                 ><ConstructionIcon /> Craft Tools</Button>
                         }
-                        <p>Cost: {globalData.toolsPrice.toFixed(1)} Crafting Materials</p>
+                        <p>Cost: {globalData.toolsPrice.toFixed(0)} Crafting Materials</p>
                     </Container>
             }
         </Container>
