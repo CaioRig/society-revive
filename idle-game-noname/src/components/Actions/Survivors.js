@@ -39,7 +39,7 @@ const Survivors = () => {
                 </Container>
             }
             {   // EQUIP SURVIVORS
-                qty.toolsQty < 5
+                (qty.toolsQty < 5 && qty.survivorsQty < 50) 
                     ?
                     <></>
                     :

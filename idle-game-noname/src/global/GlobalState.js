@@ -34,7 +34,7 @@ const GlobalState = (props) => {
     const [equipSurvivorCraftingModifier, setEquipSurvivorCraftingModifier] = useState(1)
 
     // HOUSES
-    const [ housingBuildingModifier, setHousingBuildingModifier ] = useState(1)
+    const [ housingBuildingModifier, setHousingBuildingModifier ] = useState(2)
     const [ housingCraftingModifier, setHousingCraftingModifier ] = useState(1)
 
     // TOOLS
@@ -111,6 +111,11 @@ const GlobalState = (props) => {
         Gather: {
             addNumberPerClick,
             // debugClick
+        },
+        PerSec: {
+            resoursePerSec,
+            buildingMaterialPerSec,
+            craftingMaterialPerSec
         },
         Stock: {
             resourseNumber,
