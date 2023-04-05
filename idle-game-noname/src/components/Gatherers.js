@@ -1,14 +1,25 @@
 import { useContext } from "react"
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import GlobalStateContext from "../global/GlobalStateContext"
+import ParkIcon from '@mui/icons-material/Park';
 
 const Gatherers = () => {
-    const globalData = useContext(GlobalStateContext).Game
+    const gather = useContext(GlobalStateContext).Gather
 
     return (
-        <Button onClick={globalData.addNumberPerClick}
-        title="Click to gather resourses"
-        >Gather resourses</Button>
+        <Box textAlign="center">
+            <Button onClick={gather.addNumberPerClick}
+                variant="outlined"
+                size="large"
+                title="Click to gather resources"
+            ><ParkIcon /> Gather resources </Button>
+            
+            {/* <Button onClick={gather.debugClick}
+                variant="outlined"
+                size="large"
+                title="Click to gather resources"
+            ><ParkIcon /> DEBUG </Button> */}
+        </Box>
     )
 }
 
