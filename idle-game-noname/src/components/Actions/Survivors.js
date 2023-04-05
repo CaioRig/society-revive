@@ -39,12 +39,12 @@ const Survivors = () => {
                 </Container>
             }
             {   // EQUIP SURVIVORS
-                (qty.toolsQty < 5 && qty.survivorsQty < 50) 
+                qty.toolsQty < 5
                     ?
                     <></>
                     :
                     <Container>
-                        <Typography>
+                        <Typography title="Equipped Survivors">
                             <PersonAddAlt1Icon /> {qty.survivorsEquipQty}
                         </Typography>
                         {

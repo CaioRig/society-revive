@@ -16,19 +16,19 @@ const Resources = () => {
         <Container>
             <Typography
                 color={"#ffffff"}
-                title={`Resources \n${perSec.resoursePerSec}/s`}
+                title={`Resources \nProduction: ${perSec.resoursePerSec}/s`}
             >
                 <ForestIcon /> {stock.resourseNumber.toFixed(0)}
             </Typography>
             <Typography
                 color={"#ffffff"}
-                title={`Building Materials \n${perSec.buildingMaterialPerSec}/s`}
+                title={`Building Materials \nProduction: ${perSec.buildingMaterialPerSec}/s`}
             >
                 <ConstructionIcon /> {stock.buildingMaterialNumber.toFixed(0)}
             </Typography>
             <Typography
                 color={"#ffffff"}
-                title={`Crafting Materials \n${perSec.craftingMaterialPerSec}/s`}
+                title={`Crafting Materials \nProduction: ${perSec.craftingMaterialPerSec}/s`}
             >
                 <HandymanIcon /> {stock.craftingMaterialNumber.toFixed(0)}
             </Typography>
