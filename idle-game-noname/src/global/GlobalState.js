@@ -90,7 +90,7 @@ const GlobalState = (props) => {
     const buildTools = () => {
         setCraftingMaterialNumber(craftingMaterialNumber - toolsPrice)
         setToolsQty(toolsQty + 1) // TOOLS QUANTITY
-        setToolsPrice(toolsPrice + (resoursePerSec * 2) + 1) // PRICE
+        setToolsPrice(toolsPrice + (craftingMaterialPerSec * 2) + 1) // PRICE
         setResoursePerSec(resoursePerSec + toolsResourceModifier) // RESOURSE PRODUCTION PER SEC
         setCraftingMaterialPerSec(craftingMaterialPerSec + toolsCraftingModifier) // CRAFTING MATERIAL PRODUCTION PER SECOND
     }
