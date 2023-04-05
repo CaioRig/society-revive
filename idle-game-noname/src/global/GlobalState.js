@@ -7,11 +7,12 @@ const GlobalState = (props) => {
     const addNumberPerClick = () => {
         setResourseNumber(resourseNumber + 1)
     }
-    const debugClick = () => {
-        setResourseNumber(resourseNumber + 100000)
-        setBuildingMaterialNumber(buildingMaterialNumber + 100000)
-        setCraftingMaterialNumber(craftingMaterialNumber + 100000)
-    }
+    // CLICK HACK FOR DEBUGGING PURPOSES
+    // const debugClick = () => {
+    //     setResourseNumber(resourseNumber + 100000)
+    //     setBuildingMaterialNumber(buildingMaterialNumber + 100000)
+    //     setCraftingMaterialNumber(craftingMaterialNumber + 100000)
+    // }
 
     // STOCK NUMBERS -------------------------------------
     const [resourseNumber, setResourseNumber] = useState(0)
@@ -50,7 +51,7 @@ const GlobalState = (props) => {
 
     // PRICES -------------------------------------
     const [findSurvivorPrice, setFindSurvivorPrice] = useState(50)
-    const [equipSurvivorPrice, setEquipSurvivorPrice] = useState(1200)
+    const [equipSurvivorPrice, setEquipSurvivorPrice] = useState(2000)
 
     const [buildHousingPrice, setBuildHousingPrice] = useState(1000)
 
@@ -68,9 +69,9 @@ const GlobalState = (props) => {
 
     // EQUIP SURVIVORS
     const equipSurvivor = () => {
-        setCraftingMaterialNumber(craftingMaterialNumber - equipSurvivorPrice)
+        setResourseNumber(resourseNumber - equipSurvivorPrice)
         setSurvivorsEquipQty(survivorsEquipQty + 1) // EQUIPPED SURVIVOR QUANTITY
-        setEquipSurvivorPrice(equipSurvivorPrice + (craftingMaterialPerSec * 3) + 5) // PRICE
+        setEquipSurvivorPrice(equipSurvivorPrice + (resoursePerSec * 3) + 5) // PRICE
         setResoursePerSec(resoursePerSec + equipSurvivorResourceModifier) // RESOURSE PRODUCTION PER SECOND
         setBuildingMaterialPerSec(buildingMaterialPerSec + equipSurvivorBuildingModifier) // BUILDING MATERIAL PRODUCTION PER SECOND
         setCraftingMaterialPerSec(craftingMaterialPerSec + equipSurvivorCraftingModifier) // CRAFTING MATERIAL PRODUCTION PER SECOND
@@ -109,7 +110,7 @@ const GlobalState = (props) => {
     const globalData = {
         Gather: {
             addNumberPerClick,
-            debugClick
+            // debugClick
         },
         Stock: {
             resourseNumber,

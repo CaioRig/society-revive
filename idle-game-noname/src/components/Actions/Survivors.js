@@ -48,7 +48,7 @@ const Survivors = () => {
                             <PersonAddAlt1Icon /> {qty.survivorsEquipQty}
                         </Typography>
                         {
-                            prices.equipSurvivorPrice > stock.craftingMaterialNumber
+                            prices.equipSurvivorPrice > stock.resourseNumber
                                 ?
                                 <Button color="error"
                                     variant="outlined"
@@ -60,7 +60,7 @@ const Survivors = () => {
                                     title={`Equip survivors with tools: \n+1 Equiped Survivor(s)\n+${modifiers.equipSurvivorResourceModifier}/s Resources\n+${modifiers.equipSurvivorBuildingModifier}/s Building Materials\n+${modifiers.equipSurvivorCraftingModifier}/s Crafing Materials`}
                                 ><EmojiPeopleIcon /> Equip survivors</Button>
                         }
-                        <Typography>Cost: {prices.equipSurvivorPrice.toFixed(0)} Crafting Materials</Typography>
+                        <Typography>Cost: {prices.equipSurvivorPrice.toFixed(0)} Resources</Typography>
                     </Container>
             }
         </Container>
