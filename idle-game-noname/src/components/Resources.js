@@ -13,7 +13,22 @@ const Resources = () => {
     const perSec = useContext(GlobalStateContext).PerSec
 
     return (
-        <Container>
+        <Container sx={{
+            backgroundColor: "gray",
+            textAlign: "left",
+            justifyContent: "space-between",
+            width: "20vw",
+            margin: "20px",
+            borderRadius: "10px"
+        }}>
+            <Typography
+                color={"#ffffff"}
+                fontSize={"small"}
+                title={`Yeah, like that`}
+            >
+                Mouse over for information:
+            </Typography>
+            <br />
             <Typography
                 color={"#ffffff"}
                 title={`Resources \nProduction: ${perSec.resoursePerSec}/s`}
