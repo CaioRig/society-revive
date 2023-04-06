@@ -7,13 +7,14 @@ const Gatherers = () => {
     const gather = useContext(GlobalStateContext).Gather
 
     return (
-        <Box textAlign="center">
+        <Box textAlign="center"
+        >
             <Button onClick={gather.addNumberPerClick}
                 variant="outlined"
                 size="large"
                 title="Click to gather resources"
             ><ParkIcon /> Gather resources </Button>
-            
+
             {/* <Button onClick={gather.debugClick}
                 variant="outlined"
                 size="large"

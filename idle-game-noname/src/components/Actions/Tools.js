@@ -14,7 +14,13 @@ const Tools = () => {
     const qty = useContext(GlobalStateContext).ActionQty
 
     return (
-        <Container>
+        <Container sx={{
+            display: "flex",
+            minWidth: "20vw",
+            width: "fit-content",
+            margin: "20px"
+        }}
+        >
             {   // CRAFT TOOLS
                 qty.housingQty < 5
                     ?

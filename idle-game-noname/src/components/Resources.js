@@ -17,7 +17,8 @@ const Resources = () => {
             backgroundColor: "gray",
             textAlign: "left",
             justifyContent: "space-between",
-            width: "20vw",
+            minWidth: "20vw",
+            width: "fit-content",
             margin: "20px",
             borderRadius: "10px"
         }}>
