@@ -4,7 +4,6 @@ import Survivors from "../components/Actions/Survivors";
 import Houses from "../components/Actions/Houses";
 import Tools from "../components/Actions/Tools";
 import Resources from "../components/Resources";
-import { Container } from "@mui/material";
 
 const Home = () => {
     const navigate = useNavigate()
