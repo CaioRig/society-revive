@@ -8,11 +8,11 @@ const GlobalState = (props) => {
         setResourseNumber(resourseNumber + 1)
     }
     // CLICK HACK FOR DEBUGGING PURPOSES
-    const debugClick = () => {
-        setResourseNumber(resourseNumber + 100000)
-        setBuildingMaterialNumber(buildingMaterialNumber + 100000)
-        setCraftingMaterialNumber(craftingMaterialNumber + 100000)
-    }
+    // const debugClick = () => {
+    //     setResourseNumber(resourseNumber + 100000)
+    //     setBuildingMaterialNumber(buildingMaterialNumber + 100000)
+    //     setCraftingMaterialNumber(craftingMaterialNumber + 100000)
+    // }
 
     // STOCK NUMBERS -------------------------------------
     const [resourseNumber, setResourseNumber] = useState(0)
@@ -110,7 +110,7 @@ const GlobalState = (props) => {
     const globalData = {
         Gather: {
             addNumberPerClick,
-            debugClick
+            // debugClick
         },
         PerSec: {
             resoursePerSec,

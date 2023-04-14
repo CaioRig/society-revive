@@ -8,7 +8,7 @@ export const SurvivorsRenderer = () => {
     let [survivorArray, setSurvivorArray] = useState([])
 
     useEffect(() => {
-        if (survivorsQty > 0) {
+        if (survivorArray.length < survivorsQty) {
             setSurvivorArray(survivorArray => [...survivorArray, <img src={SurvivorsIcon}
                 key={`Survivor${survivorsQty}`}
                 alt={`Survivors`}
