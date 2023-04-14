@@ -25,7 +25,7 @@ const Resources = () => {
             <Typography
                 color={"#ffffff"}
                 fontSize={"small"}
-                title={`Yeah, like that`}
+                title={`Yes, like that`}
             >
                 Mouse over for information:
             </Typography>
