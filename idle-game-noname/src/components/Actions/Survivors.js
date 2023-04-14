@@ -16,7 +16,12 @@ const Survivors = () => {
     const qty = useContext(GlobalStateContext).ActionQty
 
     return (
-        <Container sx={{ display: "flex" }}>
+        <Container sx={{
+            display: "flex",
+            minWidth: "20vw",
+            width: "fit-content",
+            margin: "20px",
+        }}>
             {   // FIND SURVIVORS
                 <Container>
                     <Typography title="Survivors">

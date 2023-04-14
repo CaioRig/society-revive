@@ -14,7 +14,13 @@ const Houses = () => {
     const qty = useContext(GlobalStateContext).ActionQty
 
     return (
-        <Container>
+        <Container sx={{
+            display: "flex",
+            minWidth: "20vw",
+            width: "fit-content",
+            margin: "20px"
+        }}
+        >
             { // BUILD HOUSING
                 qty.survivorsQty < 5
                     ?
@@ -30,12 +36,12 @@ const Houses = () => {
                                 <Button color="error"
                                     variant="outlined"
                                     title={`Not enough building materials \n+1 House(s) \n+${modifiers.housingBuildingModifier}/s Building Materials \n+${modifiers.housingCraftingModifier}/s Crafting Materials`}
-                                ><CottageIcon /> Build Housings</Button>
+                                ><CottageIcon /> Build Housing</Button>
                                 :
                                 <Button onClick={action.buildHousing}
                                     variant="outlined"
                                     title={`Build Housing: \n+1 House(s) \n+${modifiers.housingBuildingModifier}/s Building Materials \n+${modifiers.housingCraftingModifier}/s Crafting Materials`}
-                                ><CottageIcon /> Build Housings</Button>
+                                ><CottageIcon /> Build Housing</Button>
                         }
                         <p>Cost: {prices.buildHousingPrice.toFixed(0)} Building Materials</p>
                     </Container>

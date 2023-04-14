@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import GlobalStateContext from "../../global/GlobalStateContext"
-import { Button } from "@mui/material"
+import { Button, Typography } from "@mui/material"
 import { Container } from "@mui/system"
 
 import ConstructionIcon from '@mui/icons-material/Construction';
@@ -14,14 +14,22 @@ const Tools = () => {
     const qty = useContext(GlobalStateContext).ActionQty
 
     return (
-        <Container>
+        <Container sx={{
+            display: "flex",
+            minWidth: "20vw",
+            width: "fit-content",
+            margin: "20px"
+        }}
+        >
             {   // CRAFT TOOLS
                 qty.housingQty < 5
                     ?
                     <></>
                     :
                     <Container>
-                        <p><HardwareIcon /> {qty.toolsQty}</p>
+                        <Typography title="Tools">
+                            <HardwareIcon /> {qty.toolsQty}
+                        </Typography>
                         {
                             prices.toolsPrice > stock.craftingMaterialNumber
                                 ?
