@@ -1,4 +1,4 @@
-# React Idle Game
+# Noname Idle Game
 
 A simple idle game built using React, utilizing global state management, CSS, HTML, React Hooks, JavaScript, and Material UI. The game is still under development and aims to provide an engaging and interactive experience for players.
 
