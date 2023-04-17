@@ -18,5 +18,6 @@ The following are planned updates for the future development of the game:
 
 - Make data persist through browser resets
 - Add additional game mechanics and features
+- Add a user register/login interface
 - Improve game balance and progression
 - Enhance game aesthetics
