@@ -1,75 +1,98 @@
-import { useContext } from "react"
-import GlobalStateContext from "../../global/GlobalStateContext"
-import { Button, Typography } from "@mui/material"
-import { Container } from "@mui/system"
-
-import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
-import PersonIcon from '@mui/icons-material/Person';
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import React, { useContext } from "react";
+import GlobalStateContext from "../../global/GlobalStateContext";
+import { Button, Typography, Card, CardContent } from "@mui/material";
+import { Container } from "@mui/system";
+import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
+import PersonIcon from "@mui/icons-material/Person";
+import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
+import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 
 const Survivors = () => {
-    const stock = useContext(GlobalStateContext).Stock
-    const action = useContext(GlobalStateContext).Action
-    const modifiers = useContext(GlobalStateContext).ActionModifier.Survivor
-    const prices = useContext(GlobalStateContext).ActionPrice
-    const qty = useContext(GlobalStateContext).ActionQty
+    const { Stock, Action, ActionModifier, ActionQty, ActionPrice } = useContext(
+        GlobalStateContext
+    );
+    const {
+        survivorsQty,
+        survivorsEquipQty,
+        toolsQty,
+    } = ActionQty;
+    const {
+        survivorResourceModifier,
+        survivorBuildingModifier,
+        equipSurvivorResourceModifier,
+        equipSurvivorBuildingModifier,
+        equipSurvivorCraftingModifier,
+    } = ActionModifier.Survivor;
+    const {
+        findSurvivorPrice,
+        equipSurvivorPrice,
+    } = ActionPrice;
+    const { resourceNumber } = Stock;
 
     return (
-        <Container sx={{
-            display: "flex",
-            minWidth: "20vw",
-            width: "fit-content",
-            margin: "20px",
-        }}>
-            {   // FIND SURVIVORS
-                <Container>
+        <Container
+            sx={{
+                display: "flex",
+                minWidth: "20vw",
+                width: "fit-content",
+                margin: "20px",
+            }}
+        >
+            {/* FIND SURVIVORS */}
+            <Card sx={{ background: "grey" }}>
+                <CardContent>
                     <Typography title="Survivors">
-                        <PersonIcon /> {qty.survivorsQty}
+                        <PersonIcon /> {survivorsQty}
                     </Typography>
-                    {
-                        prices.findSurvivorPrice > stock.resourseNumber
-                            ?
-                            <Button color="error"
-                                variant="outlined"
-                                title={`Not enough resources \n+1 Survivor(s)\n+${modifiers.survivorResourceModifier}/s Resources\n+${modifiers.survivorBuildingModifier}/s Building Materials`}
-                            ><AccessibilityNewIcon /> Find survivors</Button>
-                            :
-                            <Button onClick={action.findSurvivor}
-                                variant="outlined"
-                                title={`Search for survivors: \n+1 Survivor(s)\n+${modifiers.survivorResourceModifier}/s Resources\n+${modifiers.survivorBuildingModifier}/s Building Materials`}
-                            ><AccessibilityNewIcon /> Find survivors</Button>
-                    }
-                    <p>Cost: {prices.findSurvivorPrice.toFixed(0)} Resources</p>
+                    {findSurvivorPrice > resourceNumber ? (
+                        <Button
+                            color="error"
+                            variant="outlined"
+                            title={`Not enough resources \n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`}
+                        >
+                            <AccessibilityNewIcon /> Find survivors
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={Action.findSurvivor}
+                            variant="outlined"
+                            title={`Search for survivors: \n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`}
+                        >
+                            <AccessibilityNewIcon /> Find survivors
+                        </Button>
+                    )}
+                    <Typography>Cost: {findSurvivorPrice} Resources</Typography>
+                </CardContent>
+            </Card>
+
+            {/* EQUIP SURVIVORS */}
+            {toolsQty >= 5 && (
+                <Container>
+                    <Typography title="Equipped Survivors">
+                        <PersonAddAlt1Icon /> {survivorsEquipQty}
+                    </Typography>
+                    {equipSurvivorPrice > resourceNumber ? (
+                        <Button
+                            color="error"
+                            variant="outlined"
+                            title={`Not enough resources \n+1 Equipped Survivor(s)\n+${equipSurvivorResourceModifier}/s Resources\n+${equipSurvivorBuildingModifier}/s Building Materials\n+${equipSurvivorCraftingModifier}/s Crafting Materials`}
+                        >
+                            <EmojiPeopleIcon /> Equip survivors
+                        </Button>
+                    ) : (
+                        <Button
+                            onClick={Action.equipSurvivor}
+                            variant="outlined"
+                            title={`Equip survivors with tools: \n+1 Equipped Survivor(s)\n+${equipSurvivorResourceModifier}/s Resources\n+${equipSurvivorBuildingModifier}/s Building Materials\n+${equipSurvivorCraftingModifier}/s Crafting Materials`}
+                        >
+                            <EmojiPeopleIcon /> Equip survivors
+                        </Button>
+                    )}
+                    <Typography>Cost: {equipSurvivorPrice} Resources</Typography>
                 </Container>
-            }
-            {   // EQUIP SURVIVORS
-                qty.toolsQty < 5
-                    ?
-                    <></>
-                    :
-                    <Container>
-                        <Typography title="Equipped Survivors">
-                            <PersonAddAlt1Icon /> {qty.survivorsEquipQty}
-                        </Typography>
-                        {
-                            prices.equipSurvivorPrice > stock.resourseNumber
-                                ?
-                                <Button color="error"
-                                    variant="outlined"
-                                    title={`Not enough resources \n+1 Equipped Survivor(s)\n+${modifiers.equipSurvivorResourceModifier}/s Resources\n+${modifiers.equipSurvivorBuildingModifier}/s Building Materials\n+${modifiers.equipSurvivorCraftingModifier}/s Crafing Materials`}
-                                ><EmojiPeopleIcon /> Equip survivors</Button>
-                                :
-                                <Button onClick={action.equipSurvivor}
-                                    variant="outlined"
-                                    title={`Equip survivors with tools: \n+1 Equiped Survivor(s)\n+${modifiers.equipSurvivorResourceModifier}/s Resources\n+${modifiers.equipSurvivorBuildingModifier}/s Building Materials\n+${modifiers.equipSurvivorCraftingModifier}/s Crafing Materials`}
-                                ><EmojiPeopleIcon /> Equip survivors</Button>
-                        }
-                        <Typography>Cost: {prices.equipSurvivorPrice.toFixed(0)} Resources</Typography>
-                    </Container>
-            }
+            )}
         </Container>
-    )
-}
+    );
+};
 
 export default Survivors;
