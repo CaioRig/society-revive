@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
-import { Button, Typography, Card, CardContent } from "@mui/material";
 import { Container } from "@mui/system";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import PersonIcon from "@mui/icons-material/Person";
@@ -33,7 +32,13 @@ const Survivors = () => {
     const findSurvivorActionName = `Find survivors`
     const findSurvivorTitleDisabled = `Not enough resources\n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`
     const findSurvivorTitle = `Search for survivors\n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`
-    const survivorStockName = `Resources`
+    const priceStockName = `Resources`
+    const survivorQtyTitle = `Survivors`
+
+    const equipeSurvivorActionName = `Equip survivors`
+    const equipSurvivorTitleDisabled = `Not enough resources \n+1 Equipped Survivor(s)\n+${equipSurvivorResourceModifier}/s Resources\n+${equipSurvivorBuildingModifier}/s Building Materials\n+${equipSurvivorCraftingModifier}/s Crafting Materials`
+    const equipSurvivorTitle = `Equip survivors with tools: \n+1 Equipped Survivor(s)\n+${equipSurvivorResourceModifier}/s Resources\n+${equipSurvivorBuildingModifier}/s Building Materials\n+${equipSurvivorCraftingModifier}/s Crafting Materials`
+    const equipSurvivorQtyTitle = `Equipped Survivors`
 
     return (
         <Container
@@ -51,9 +56,10 @@ const Survivors = () => {
                 actionQty={survivorsQty}
                 actionPrice={findSurvivorPrice}
                 stockNumber={resourceNumber}
-                actionStockName={survivorStockName}
+                actionStockName={priceStockName}
                 disabledTitle={findSurvivorTitleDisabled}
                 enabledTitle={findSurvivorTitle}
+                qtyTitle={survivorQtyTitle}
                 actionNumberIcon={<PersonIcon />}
                 actionIcon={<AccessibilityNewIcon />}
             />
@@ -61,27 +67,19 @@ const Survivors = () => {
             {/* EQUIP SURVIVORS */}
             {toolsQty >= 5 && (
                 <Container>
-                    <Typography title="Equipped Survivors">
-                        <PersonAddAlt1Icon /> {survivorsEquipQty}
-                    </Typography>
-                    {equipSurvivorPrice > resourceNumber ? (
-                        <Button
-                            color="error"
-                            variant="outlined"
-                            title={`Not enough resources \n+1 Equipped Survivor(s)\n+${equipSurvivorResourceModifier}/s Resources\n+${equipSurvivorBuildingModifier}/s Building Materials\n+${equipSurvivorCraftingModifier}/s Crafting Materials`}
-                        >
-                            <EmojiPeopleIcon /> Equip survivors
-                        </Button>
-                    ) : (
-                        <Button
-                            onClick={Action.equipSurvivor}
-                            variant="outlined"
-                            title={`Equip survivors with tools: \n+1 Equipped Survivor(s)\n+${equipSurvivorResourceModifier}/s Resources\n+${equipSurvivorBuildingModifier}/s Building Materials\n+${equipSurvivorCraftingModifier}/s Crafting Materials`}
-                        >
-                            <EmojiPeopleIcon /> Equip survivors
-                        </Button>
-                    )}
-                    <Typography>Cost: {equipSurvivorPrice} Resources</Typography>
+                    <ActionCard
+                        actionName={equipeSurvivorActionName}
+                        actionOnClick={Action.equipSurvivor}
+                        actionQty={survivorsEquipQty}
+                        actionPrice={equipSurvivorPrice}
+                        stockNumber={resourceNumber}
+                        actionStockName={priceStockName}
+                        disabledTitle={equipSurvivorTitleDisabled}
+                        enabledTitle={equipSurvivorTitle}
+                        qtyTitle={equipSurvivorQtyTitle}
+                        actionNumberIcon={<PersonAddAlt1Icon />}
+                        actionIcon={<EmojiPeopleIcon />}
+                    />
                 </Container>
             )}
         </Container>
