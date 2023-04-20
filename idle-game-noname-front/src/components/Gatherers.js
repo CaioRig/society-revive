@@ -16,7 +16,7 @@ const Gatherers = () => {
         <Grid item xs={12} sm={8} md={8} lg={8}>
           <Button
             onClick={handleGatherClick}
-            variant="outlined"
+            variant="contained"
             size="large"
             startIcon={<ParkIcon />}
             title="Click to gather resources"
