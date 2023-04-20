@@ -1,29 +1,30 @@
 import React from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, Box } from "@mui/material";
 
 const StockCard = ({ Stock, PerSec, Img, Name }) => {
     return (
         <Card
+            title={`${Name}\nProduction: ${PerSec}/s`}
             sx={{
                 backgroundColor: "gray",
                 textAlign: "center",
-                justifyContent: "space-between",
                 width: "fit-content",
                 margin: "20px",
                 borderRadius: "10px",
             }}
         >
             <CardContent>
-                <Typography
-                    color="#ffffff"
-                    title={`${Name}\nProduction: ${PerSec}/s`}
-                    titleTypographyProps={{ color: "#ffffff" }}
-                >
-                    {Img} {Stock}
-                </Typography>
+                <Box display="flex" flexDirection="column" alignItems="center">
+                    <Box mt={1}>{Img}</Box>
+                    <Typography
+                        color="#ffffff"
+                    >
+                        {Stock}
+                    </Typography>
+                </Box>
             </CardContent>
         </Card>
     );
-}
+};
 
 export default StockCard;

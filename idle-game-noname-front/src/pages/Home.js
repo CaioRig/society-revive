@@ -1,8 +1,5 @@
 import React from "react";
 import Gatherers from "../components/Gatherers";
-import FindSurvivors from "../components/Actions/FindSurvivors";
-import BuildHousing from "../components/Actions/BuildHousing";
-import CraftTools from "../components/Actions/CraftTools";
 import SurvivorsRenderer from "../components/ImgRenderers";
 import { Container, Grid } from "@mui/material";
 import StockRenderer from "../components/Stock/StockRenderer";
