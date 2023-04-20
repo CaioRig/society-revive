@@ -6,7 +6,7 @@ const StockCard = ({ Stock, PerSec, Img, Name }) => {
         <Card
             sx={{
                 backgroundColor: "gray",
-                textAlign: "left",
+                textAlign: "center",
                 justifyContent: "space-between",
                 width: "fit-content",
                 margin: "20px",

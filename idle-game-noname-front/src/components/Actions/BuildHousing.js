@@ -16,10 +16,10 @@ const BuildHousing = () => {
 
     const { buildingMaterialNumber } = Stock;
     const actionName = "Build Housing";
-    const titleDisabled = `Not enough building materials \n+1 House(s) \n+${housingBuildingModifier}/s Building Materials \n+${housingCraftingModifier}/s Crafting Materials`;
-    const title = `Build Housing: \n+1 House(s) \n+${housingBuildingModifier}/s Building Materials \n+${housingCraftingModifier}/s Crafting Materials`;
+    const titleDisabled = `+1 House(s) \n+${housingBuildingModifier}/s Building Materials \n+${housingCraftingModifier}/s Crafting Materials`;
+    const title = `+1 House(s) \n+${housingBuildingModifier}/s Building Materials \n+${housingCraftingModifier}/s Crafting Materials`;
     const stockName = "Building Materials";
-    const qtyTitle = "Survivors";
+    const qtyTitle = "Houses";
 
     // Check if survivorsQty is less than 5, if yes, render null, else render ActionCard
     return (

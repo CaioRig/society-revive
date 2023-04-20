@@ -16,8 +16,8 @@ const FindSurvivors = () => {
 
     const { resourceNumber } = Stock;
     const actionName = "Find survivors";
-    const titleDisabled = `Not enough resources\n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`;
-    const title = `Search for survivors\n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`;
+    const titleDisabled = `+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`;
+    const title = `+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`;
     const stockName = "Resources";
     const qtyTitle = "Survivors";
 

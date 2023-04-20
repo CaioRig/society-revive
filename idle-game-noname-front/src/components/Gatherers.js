@@ -12,8 +12,8 @@ const Gatherers = () => {
 
   return (
     <Box textAlign="center" mt={4}>
-      <Grid container justifyContent="center" alignItems="center" spacing={2}>
-        <Grid item xs={12} sm={6} md={4}>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item xs={12} sm={8} md={8} lg={8}>
           <Button
             onClick={handleGatherClick}
             variant="outlined"

@@ -17,17 +17,12 @@ const StockRenderer = () => {
                 Name={"Resources"}
                 Img={<ForestIcon />}
             />
-
-            {Stock.buildingMaterialNumber < 0 ?
-                <></>
-                :
-                <StockCard
-                    Stock={Stock.buildingMaterialNumber}
-                    PerSec={PerSec.buildingMaterialPerSec}
-                    Name={"Building Materials"}
-                    Img={<ConstructionIcon />}
-                />
-            }
+            <StockCard
+                Stock={Stock.buildingMaterialNumber}
+                PerSec={PerSec.buildingMaterialPerSec}
+                Name={"Building Materials"}
+                Img={<ConstructionIcon />}
+            />
             <StockCard
                 Stock={Stock.craftingMaterialNumber}
                 PerSec={PerSec.craftingMaterialPerSec}
