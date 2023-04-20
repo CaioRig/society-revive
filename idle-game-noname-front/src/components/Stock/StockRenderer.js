@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
 import StockCard from "./StockCard";
 import ForestIcon from '@mui/icons-material/Forest';
@@ -9,7 +9,7 @@ const StockRenderer = () => {
     const { Stock, PerSec } = useContext(GlobalStateContext);
 
     return (
-        <>
+        <div style={{ display: "flex" }}>
             <StockCard
                 Stock={Stock.resourceNumber}
                 PerSec={PerSec.resourcePerSec}
@@ -28,7 +28,7 @@ const StockRenderer = () => {
                 Name={"Crafting Materials"}
                 Img={<HandymanIcon />}
             />
-        </>
+        </div>
     )
 }
 

@@ -1,8 +1,7 @@
+import React from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 
-const StockCard = (props) => {
-    const { Stock, PerSec, Img, Name } = props;
-
+const StockCard = ({ Stock, PerSec, Img, Name }) => {
     return (
         <Card
             sx={{
