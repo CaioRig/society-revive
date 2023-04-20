@@ -4,7 +4,7 @@ import Survivors from "../components/Actions/Survivors";
 import Houses from "../components/Actions/Houses";
 import Tools from "../components/Actions/Tools";
 import Resources from "../components/Resources";
-import { SurvivorsRenderer } from "../components/ImgRenderers";
+import SurvivorsRenderer from "../components/ImgRenderers";
 import { Container } from "@mui/material";
 
 const Home = () => {
