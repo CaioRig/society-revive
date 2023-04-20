@@ -22,7 +22,7 @@ const ActionCard = ({
     enabledTitle,
     qtyTitle,
     actionNumberIcon,
-    actionIcon
+    actionIcon,
 }) => {
     const isActionDisabled = actionPrice > stockNumber;
 
@@ -39,12 +39,14 @@ const ActionCard = ({
                 flexDirection: "column",
                 justifyContent: "space-between",
                 height: "100%",
+                userSelect: "none", // added userSelect property
             }}
             title={isActionDisabled ? disabledTitle : enabledTitle}
         >
             <Box
                 onClick={isActionDisabled ? null : actionOnClick}
                 style={{ cursor: isActionDisabled ? "default" : "pointer" }}
+                flex={1}
             >
                 <CardContent>
                     <Box>
