@@ -1,7 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 import Gatherers from "../components/Gatherers";
-import Survivors from "../components/Actions/Survivors";
-import Houses from "../components/Actions/Houses";
+import FindSurvivors from "../components/Actions/FindSurvivors";
+import BuildHousing from "../components/Actions/BuildHousing";
 import Tools from "../components/Actions/Tools";
 import Resources from "../components/Resources";
 import SurvivorsRenderer from "../components/ImgRenderers";
@@ -22,8 +22,8 @@ const Home = () => {
             <Gatherers />
             <br />
             <br />
-            <Survivors />
-            <Houses />
+            <FindSurvivors />
+            <BuildHousing />
             <Tools />
         </div>
     );
