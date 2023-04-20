@@ -30,6 +30,11 @@ const Survivors = () => {
     } = ActionPrice;
     const { resourceNumber } = Stock;
 
+    const findSurvivorActionName = `Find survivors`
+    const findSurvivorTitleDisabled = `Not enough resources\n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`
+    const findSurvivorTitle = `Search for survivors\n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`
+    const survivorStockName = `Resources`
+
     return (
         <Container
             sx={{
@@ -41,12 +46,16 @@ const Survivors = () => {
         >
             {/* FIND SURVIVORS */}
             <ActionCard
+                actionName={findSurvivorActionName}
                 actionOnClick={Action.findSurvivor}
                 actionQty={survivorsQty}
-                resourceNumber={resourceNumber}
                 actionPrice={findSurvivorPrice}
-                actionResourceModifier={survivorResourceModifier}
-                actionBuildingModifier={survivorBuildingModifier}
+                stockNumber={resourceNumber}
+                actionStockName={survivorStockName}
+                disabledTitle={findSurvivorTitleDisabled}
+                enabledTitle={findSurvivorTitle}
+                actionNumberIcon={<PersonIcon />}
+                actionIcon={<AccessibilityNewIcon />}
             />
 
             {/* EQUIP SURVIVORS */}

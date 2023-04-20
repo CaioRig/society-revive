@@ -1,38 +1,35 @@
-import { Card, CardContent, Typography, Button } from "@mui/material"
-import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
-import PersonIcon from "@mui/icons-material/Person";
+import React from "react";
+import { Card, CardContent, Typography, Button } from "@mui/material";
 
-const ActionCard = (props) => {
-    const { actionOnClick, actionQty, resourceNumber, actionPrice, actionResourceModifier, actionBuildingModifier } = props
-
+const ActionCard = ({ actionName, actionOnClick, actionPrice, actionQty, stockNumber, actionStockName, disabledTitle, enabledTitle, actionNumberIcon, actionIcon }) => {
     return (
         <Card sx={{ background: "grey" }}>
             <CardContent>
                 <Typography title="Survivors">
-                    <PersonIcon /> {actionQty}
+                    {actionNumberIcon} {actionQty}
                 </Typography>
-                {actionPrice > resourceNumber ? (
+                {actionPrice > stockNumber ? (
                     <Button
                         color="error"
                         variant="outlined"
-                        title={`Not enough resources \n+1 Survivor(s)\n+${actionResourceModifier}/s Resources\n+${actionBuildingModifier}/s Building Materials`}
+                        title={disabledTitle}
                     >
-                        <AccessibilityNewIcon /> Find survivors
+                        {actionIcon} {actionName}
                     </Button>
                 ) : (
                     <Button
                         onClick={actionOnClick}
+                        color="primary"
                         variant="outlined"
-                        title={`Search for survivors: \n+1 Survivor(s)\n+${actionResourceModifier}/s Resources\n+${actionBuildingModifier}/s Building Materials`}
+                        title={enabledTitle}
                     >
-                        <AccessibilityNewIcon /> Find survivors
+                        {actionIcon} {actionName}
                     </Button>
                 )}
-                <Typography>Cost: {actionPrice} Resources</Typography>
+                <Typography>Cost: {actionPrice} {actionStockName}</Typography>
             </CardContent>
         </Card>
-    )
-}
+    );
+};
 
 export default ActionCard;
-
