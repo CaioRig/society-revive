@@ -6,6 +6,7 @@ import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import PersonIcon from "@mui/icons-material/Person";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
+import ActionCard from "./Cards";
 
 const Survivors = () => {
     const { Stock, Action, ActionModifier, ActionQty, ActionPrice } = useContext(
@@ -39,31 +40,14 @@ const Survivors = () => {
             }}
         >
             {/* FIND SURVIVORS */}
-            <Card sx={{ background: "grey" }}>
-                <CardContent>
-                    <Typography title="Survivors">
-                        <PersonIcon /> {survivorsQty}
-                    </Typography>
-                    {findSurvivorPrice > resourceNumber ? (
-                        <Button
-                            color="error"
-                            variant="outlined"
-                            title={`Not enough resources \n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`}
-                        >
-                            <AccessibilityNewIcon /> Find survivors
-                        </Button>
-                    ) : (
-                        <Button
-                            onClick={Action.findSurvivor}
-                            variant="outlined"
-                            title={`Search for survivors: \n+1 Survivor(s)\n+${survivorResourceModifier}/s Resources\n+${survivorBuildingModifier}/s Building Materials`}
-                        >
-                            <AccessibilityNewIcon /> Find survivors
-                        </Button>
-                    )}
-                    <Typography>Cost: {findSurvivorPrice} Resources</Typography>
-                </CardContent>
-            </Card>
+            <ActionCard
+                actionOnClick={Action.findSurvivor}
+                actionQty={survivorsQty}
+                resourceNumber={resourceNumber}
+                actionPrice={findSurvivorPrice}
+                actionResourceModifier={survivorResourceModifier}
+                actionBuildingModifier={survivorBuildingModifier}
+            />
 
             {/* EQUIP SURVIVORS */}
             {toolsQty >= 5 && (
