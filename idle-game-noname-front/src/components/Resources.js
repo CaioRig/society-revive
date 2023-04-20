@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
 import GlobalStateContext from "../global/GlobalStateContext";
 import ForestIcon from '@mui/icons-material/Forest';
-import ConstructionIcon from '@mui/icons-material/Construction';
-import HandymanIcon from '@mui/icons-material/Handyman';
+
+
 
 const Resources = () => {
     const { Stock, PerSec } = useContext(GlobalStateContext);

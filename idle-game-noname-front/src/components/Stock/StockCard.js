@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
 import { Card, CardContent, Typography } from "@mui/material";
-import GlobalStateContext from "../../global/GlobalStateContext";
-import ForestIcon from '@mui/icons-material/Forest';
 
-const StockCard = () => {
-    const { Stock, PerSec } = useContext(GlobalStateContext);
+const StockCard = (props) => {
+    const { Stock, PerSec, Img, Name } = props;
 
     return (
         <Card
@@ -20,10 +17,10 @@ const StockCard = () => {
             <CardContent>
                 <Typography
                     color="#ffffff"
-                    title={`Resources\nProduction: ${PerSec.resourcePerSec}/s`}
+                    title={`${Name}\nProduction: ${PerSec}/s`}
                     titleTypographyProps={{ color: "#ffffff" }}
                 >
-                    <ForestIcon /> {Stock.resourceNumber}
+                    {Img} {Stock}
                 </Typography>
             </CardContent>
         </Card>
