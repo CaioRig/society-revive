@@ -3,9 +3,9 @@ import Gatherers from "../components/Gatherers";
 import FindSurvivors from "../components/Actions/FindSurvivors";
 import BuildHousing from "../components/Actions/BuildHousing";
 import Tools from "../components/Actions/Tools";
-import Resources from "../components/Resources";
 import SurvivorsRenderer from "../components/ImgRenderers";
 import { Container, Grid } from "@mui/material";
+import StockCard from "../components/Stock/StockCard";
 
 const Home = () => {
 
@@ -13,13 +13,13 @@ const Home = () => {
         <Container maxWidth="lg">
             <Grid container spacing={2}>
                 <Grid item xs={12} md={4}>
-                    <Resources />
-                </Grid>
-                <Grid item xs={12} md={4}>
-                    <Gatherers />
+                    <StockCard />
                 </Grid>
                 <Grid item xs={12} md={4}>
                     <SurvivorsRenderer />
+                </Grid>
+                <Grid item xs={12} md={4}>
+                    <Gatherers />
                 </Grid>
             </Grid>
             <br />

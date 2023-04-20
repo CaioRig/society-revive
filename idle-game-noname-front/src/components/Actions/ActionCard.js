@@ -40,6 +40,7 @@ const ActionCard = ({
                 justifyContent: "space-between",
                 height: "100%",
             }}
+            title={isActionDisabled ? disabledTitle : enabledTitle}
         >
             <Box
                 onClick={isActionDisabled ? null : actionOnClick}

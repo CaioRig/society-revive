@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import GlobalStateContext from "../../global/GlobalStateContext";
-import ActionCard from "./Cards";
+import ActionCard from "./ActionCard";
 import { Container } from "@mui/system";
 import CottageIcon from "@mui/icons-material/Cottage";
 import HomeIcon from "@mui/icons-material/Home";

@@ -3,7 +3,7 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 import { Container } from "@mui/system";
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
 import PersonIcon from "@mui/icons-material/Person";
-import ActionCard from "./Cards";
+import ActionCard from "./ActionCard";
 
 const FindSurvivors = () => {
     const {

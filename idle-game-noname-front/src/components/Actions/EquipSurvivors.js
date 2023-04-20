@@ -3,7 +3,7 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 import { Container } from "@mui/system";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
-import ActionCard from "./Cards";
+import ActionCard from "./ActionCard";
 
 const EquipSurvivors = () => {
     const { Stock, Action, ActionModifier, ActionQty, ActionPrice } = useContext(
