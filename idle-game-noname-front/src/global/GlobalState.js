@@ -14,8 +14,6 @@ const GlobalState = (props) => {
     //     setCraftingMaterialNumber(craftingMaterialNumber + 100000)
     // }
 
-
-
     // STOCK NUMBERS -------------------------------------
     const [resourceNumber, setResourseNumber] = useState(0)
     const [buildingMaterialNumber, setBuildingMaterialNumber] = useState(0)
