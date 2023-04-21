@@ -37,13 +37,17 @@ const ActionImgCard = ({ ActionQty, ActionIcon, ActionName }) => {
                 alignItems: "flex-start",
                 padding: "10px",
                 overflowX: "auto", // Added overflowX property to enable horizontal scrolling
+                "@media (max-width: 600px)": {
+                    // Added media query for smaller screens
+                    maxWidth: "80vw", // Set maxWidth to 80% of screen width on smaller screens
+                },
             }}
         >
             <Typography
                 color="#ffffff"
                 variant="subtitle2"
                 title={`Show ${ActionName} number`}
-                sx={{ marginBottom: "5px" }}
+                sx={{ marginBottom: "5px", maxWidth: "100%" }} // Set maxWidth to 100% for ActionName
             >
                 {ActionName}:
             </Typography>
@@ -51,7 +55,7 @@ const ActionImgCard = ({ ActionQty, ActionIcon, ActionName }) => {
                 style={{
                     display: "flex",
                     gap: "5px",
-                    maxWidth: `${ActionArray.length > 10 ? "calc(30px * 10)" : "100%"}`, // Added conditional styling for overlapping effect
+                    maxWidth: `${ActionArray.length > 10 ? "calc(30px * 10)" : "100%"}`
                 }}
             >
                 {ActionArray}

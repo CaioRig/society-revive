@@ -18,7 +18,10 @@ const Home = () => {
                 flexDirection: "column",
             }}
         >
-            <Container maxWidth="lg" style={{ flex: "1" }}>
+            <Container
+                maxWidth="lg"
+                style={{ flex: "1", overflow: "auto" }} // Add overflow property
+            >
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={4}>
                         <StockRenderer />
