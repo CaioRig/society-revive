@@ -50,10 +50,6 @@ const ActionCard = ({
             >
                 <CardContent>
                     <Box>
-                        <Typography variant="h6" title={qtyTitle}>
-                            {actionNumberIcon}
-                            {actionQty}
-                        </Typography>
                         <Typography
                             variant="body2"
                             color={isActionDisabled ? "error" : "primary"}
