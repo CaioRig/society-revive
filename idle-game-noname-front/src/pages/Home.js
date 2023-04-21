@@ -1,32 +1,42 @@
-// import { useNavigate } from "react-router-dom";
+import React from "react";
 import Gatherers from "../components/Gatherers";
-import Survivors from "../components/Actions/Survivors";
-import Houses from "../components/Actions/Houses";
-import Tools from "../components/Actions/Tools";
-import Resources from "../components/Resources";
-import { SurvivorsRenderer } from "../components/ImgRenderers";
-import { Container } from "@mui/material";
+import HomeBackground from "../img/ForestBackground.png";
+import { Container, Grid } from "@mui/material";
+import StockRenderer from "../components/Stock/StockRenderer";
+import ActionCardRenderer from "../components/Actions/ActionCardRenderer";
+import ActionImgRenderer from "../components/ActionImgRenderer/ActionImgRenderer";
 
 const Home = () => {
-    // const navigate = useNavigate()
-
     return (
-        <div>
-            <Container sx={{
+        <div
+            style={{
+                backgroundImage: `url(${HomeBackground})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                minHeight: "100vh",
                 display: "flex",
-                justifyContent: "space-between"
-            }}>
-                <Resources />
-                <SurvivorsRenderer />
+                flexDirection: "column",
+            }}
+        >
+            <Container
+                maxWidth="lg"
+                style={{ flex: "1", overflow: "auto" }} // Add overflow property
+            >
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={4}>
+                        <StockRenderer />
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <ActionImgRenderer />
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <Gatherers />
+                    </Grid>
+                </Grid>
             </Container>
-            <Gatherers />
-            <br />
-            <br />
-            <Survivors />
-            <Houses />
-            <Tools />
+            <ActionCardRenderer />
         </div>
     );
-}
+};
 
 export default Home;

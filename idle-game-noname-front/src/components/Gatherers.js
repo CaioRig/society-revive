@@ -1,27 +1,34 @@
-import { useContext } from "react"
-import { Box, Button } from "@mui/material";
-import GlobalStateContext from "../global/GlobalStateContext"
-import ParkIcon from '@mui/icons-material/Park';
+import React, { useContext } from "react";
+import { Box, Button, Grid } from "@mui/material";
+import GlobalStateContext from "../global/GlobalStateContext";
+import ParkIcon from "@mui/icons-material/Park";
 
 const Gatherers = () => {
-    const gather = useContext(GlobalStateContext).Gather
+  const { Gather } = useContext(GlobalStateContext);
 
-    return (
-        <Box textAlign="center"
-        >
-            <Button onClick={gather.addNumberPerClick}
-                variant="outlined"
-                size="large"
-                title="Click to gather resources"
-            ><ParkIcon /> Gather resources </Button>
+  const handleGatherClick = () => {
+    Gather.addNumberPerClick();
+  };
 
-            {/* <Button onClick={gather.debugClick}
-                variant="outlined"
-                size="large"
-                title="Click to gather resources"
-            ><ParkIcon /> DEBUG </Button> */}
-        </Box>
-    )
-}
+  return (
+    <Box textAlign="center" mt={4}>
+      <Grid container justifyContent="center" alignItems="center">
+        <Grid item xs={12} sm={8} md={8} lg={8}>
+          <Button
+            onClick={handleGatherClick}
+            variant="contained"
+            size="large"
+            startIcon={<ParkIcon />}
+            title="Click to gather resources"
+            aria-label="Gather resources"
+            fullWidth
+          >
+            Gather Resources
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
+  );
+};
 
 export default Gatherers;
