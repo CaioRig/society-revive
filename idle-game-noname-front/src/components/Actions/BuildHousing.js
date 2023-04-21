@@ -3,14 +3,13 @@ import GlobalStateContext from "../../global/GlobalStateContext";
 import ActionCard from "./ActionCard";
 import { Container } from "@mui/system";
 import CottageIcon from "@mui/icons-material/Cottage";
-import HomeIcon from "@mui/icons-material/Home";
 
 const BuildHousing = () => {
     const {
         Stock,
         Action,
         ActionModifier: { House: { housingBuildingModifier, housingCraftingModifier }, },
-        ActionQty: { housingQty, survivorsQty },
+        ActionQty: { survivorsQty },
         ActionPrice: { buildHousingPrice },
     } = useContext(GlobalStateContext);
 
@@ -19,7 +18,6 @@ const BuildHousing = () => {
     const titleDisabled = `+1 House(s) \n+${housingBuildingModifier}/s Building Materials \n+${housingCraftingModifier}/s Crafting Materials`;
     const title = `+1 House(s) \n+${housingBuildingModifier}/s Building Materials \n+${housingCraftingModifier}/s Crafting Materials`;
     const stockName = "Building Materials";
-    const qtyTitle = "Houses";
 
     // Check if survivorsQty is less than 5, if yes, render null, else render ActionCard
     return (
@@ -35,14 +33,11 @@ const BuildHousing = () => {
                 <ActionCard
                     actionName={actionName}
                     actionOnClick={Action.buildHousing}
-                    actionQty={housingQty}
                     actionPrice={buildHousingPrice}
                     stockNumber={buildingMaterialNumber}
                     actionStockName={stockName}
                     disabledTitle={titleDisabled}
                     enabledTitle={title}
-                    qtyTitle={qtyTitle}
-                    actionNumberIcon={<HomeIcon />}
                     actionIcon={<CottageIcon />}
                 />
             </Container>

@@ -15,13 +15,10 @@ const ActionCard = ({
     actionName,
     actionOnClick,
     actionPrice,
-    actionQty,
     stockNumber,
     actionStockName,
     disabledTitle,
     enabledTitle,
-    qtyTitle,
-    actionNumberIcon,
     actionIcon,
 }) => {
     const isActionDisabled = actionPrice > stockNumber;
