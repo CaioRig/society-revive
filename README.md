@@ -5,7 +5,7 @@ Um jogo idle simples construído usando React, com gerenciamento de estado globa
 A simple idle game built using React, utilizing global state management, CSS, HTML, React Hooks, JavaScript, and Material UI. The game is still under development and aims to provide an engaging and interactive experience for players.
 
 ## Try it out
-# [Society Revive](https://profuse-anger.surge.sh/)
+# [Society Revive](http://jobless-jellyfish.surge.sh/)
 
 ## Features
 
