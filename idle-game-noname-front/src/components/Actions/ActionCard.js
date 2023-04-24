@@ -36,7 +36,7 @@ const ActionCard = ({
                 flexDirection: "column",
                 justifyContent: "space-between",
                 height: "100%",
-                userSelect: "none", // added userSelect property
+                userSelect: "none", // added userSelect property so that the user can't select any text
             }}
             title={isActionDisabled ? disabledTitle : enabledTitle}
         >

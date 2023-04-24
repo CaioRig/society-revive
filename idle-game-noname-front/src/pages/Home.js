@@ -20,7 +20,7 @@ const Home = () => {
         >
             <Container
                 maxWidth="lg"
-                style={{ flex: "1", overflow: "auto" }} // Add overflow property
+                style={{ flex: "1", overflow: "auto" }} // Add overflow property 
             >
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={4}>
