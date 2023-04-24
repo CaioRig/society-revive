@@ -1,4 +1,4 @@
-# Noname Idle Game
+# ReactQuest
 
 Um jogo idle simples construído usando React, com gerenciamento de estado global, CSS, HTML, React Hooks, JavaScript e Material UI. O jogo ainda está em desenvolvimento e tem como objetivo proporcionar uma experiência envolvente e interativa para os jogadores.
 
