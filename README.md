@@ -1,11 +1,11 @@
-# ReactQuest
+# Society Revive
 
 Um jogo idle simples construído usando React, com gerenciamento de estado global, CSS, HTML, React Hooks, JavaScript e Material UI. O jogo ainda está em desenvolvimento e tem como objetivo proporcionar uma experiência envolvente e interativa para os jogadores.
 
 A simple idle game built using React, utilizing global state management, CSS, HTML, React Hooks, JavaScript, and Material UI. The game is still under development and aims to provide an engaging and interactive experience for players.
 
 ## Try it out
-# [ReactQuest](https://profuse-anger.surge.sh/)
+# [Society Revive](https://profuse-anger.surge.sh/)
 
 ## Features
 
