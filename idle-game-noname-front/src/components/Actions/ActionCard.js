@@ -15,13 +15,10 @@ const ActionCard = ({
     actionName,
     actionOnClick,
     actionPrice,
-    actionQty,
     stockNumber,
     actionStockName,
     disabledTitle,
     enabledTitle,
-    qtyTitle,
-    actionNumberIcon,
     actionIcon,
 }) => {
     const isActionDisabled = actionPrice > stockNumber;
@@ -39,7 +36,7 @@ const ActionCard = ({
                 flexDirection: "column",
                 justifyContent: "space-between",
                 height: "100%",
-                userSelect: "none", // added userSelect property
+                userSelect: "none", // added userSelect property so that the user can't select any text
             }}
             title={isActionDisabled ? disabledTitle : enabledTitle}
         >
@@ -50,10 +47,6 @@ const ActionCard = ({
             >
                 <CardContent>
                     <Box>
-                        <Typography variant="h6" title={qtyTitle}>
-                            {actionNumberIcon}
-                            {actionQty}
-                        </Typography>
                         <Typography
                             variant="body2"
                             color={isActionDisabled ? "error" : "primary"}

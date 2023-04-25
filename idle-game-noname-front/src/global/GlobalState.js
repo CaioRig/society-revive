@@ -1,68 +1,94 @@
 import GlobalStateContext from "./GlobalStateContext";
 import { useState, useEffect } from "react";
 import useGetSeconds from "../hooks/useGetSeconds";
+import useStateStock from "./useStateStock";
+import useStateProductionPerSec from "./useStateProductionPerSec";
+import useStateActions from "./useStateActions";
 
 const GlobalState = (props) => {
+    // STOCK NUMBERS
+    const { resourceNumber,
+        buildingMaterialNumber,
+        craftingMaterialNumber,
+        setResourceNumber,
+        setBuildingMaterialNumber,
+        setCraftingMaterialNumber } = useStateStock()
+
+    // PRODUCTION PER SEC
+    const {
+        resourcePerSec,
+        buildingMaterialPerSec,
+        craftingMaterialPerSec,
+        setResoursePerSec,
+        setBuildingMaterialPerSec,
+        setCraftingMaterialPerSec
+    } = useStateProductionPerSec()
+
+    // ACTION DATA
+    const {
+        ActionQty: {
+            survivorsQty,
+            setSurvivorsQty,
+            survivorsEquipQty,
+            setSurvivorsEquipQty,
+            housingQty,
+            setHousingQty,
+            toolsQty,
+            setToolsQty
+        },
+        ActionPrice: {
+            findSurvivorPrice,
+            setFindSurvivorPrice,
+            equipSurvivorPrice,
+            setEquipSurvivorPrice,
+            buildHousingPrice,
+            setBuildHousingPrice,
+            toolsPrice,
+            setToolsPrice
+        },
+        ActionModifier: {
+            Survivor: {
+                survivorResourceModifier,
+                setSurvivorResourceModifier,
+                survivorBuildingModifier,
+                setSurvivorBuildingModifier,
+                equipSurvivorResourceModifier,
+                setEquipSurvivorResourceModifier,
+                equipSurvivorBuildingModifier,
+                setEquipSurvivorBuildingModifier,
+                equipSurvivorCraftingModifier,
+                setEquipSurvivorCraftingModifier
+            },
+            House: {
+                housingBuildingModifier,
+                setHousingBuildingModifier,
+                housingCraftingModifier,
+                setHousingCraftingModifier
+            },
+            Tools: {
+                toolsResourceModifier,
+                setToolsResourceModifier,
+                toolsCraftingModifier,
+                setToolsCraftingModifier
+            }
+        }
+    } = useStateActions()
+
     // GATHER PER CLICK -------------------------------------
     const addNumberPerClick = () => {
-        setResourseNumber(resourceNumber + 1)
+        setResourceNumber(resourceNumber + 1)
     }
     // CLICK HACK FOR DEBUGGING PURPOSES
     // const debugClick = () => {
-    //     setResourseNumber(resourceNumber + 100000)
+    //     setResourceNumber(resourceNumber + 100000)
     //     setBuildingMaterialNumber(buildingMaterialNumber + 100000)
     //     setCraftingMaterialNumber(craftingMaterialNumber + 100000)
     // }
 
-
-
-    // STOCK NUMBERS -------------------------------------
-    const [resourceNumber, setResourseNumber] = useState(0)
-    const [buildingMaterialNumber, setBuildingMaterialNumber] = useState(0)
-    const [craftingMaterialNumber, setCraftingMaterialNumber] = useState(0)
-
-    // PRODUCTION PER SECOND -------------------------------------
-    const [resourcePerSec, setResoursePerSec] = useState(0)
-    const [buildingMaterialPerSec, setBuildingMaterialPerSec] = useState(0)
-    const [craftingMaterialPerSec, setCraftingMaterialPerSec] = useState(0)
-
-    // ACTION STOCK MODIFIER -------------------------------------
-    // SURVIVORS
-    const [survivorResourceModifier, setSurvivorResourceModifier] = useState(1)
-    const [survivorBuildingModifier, setSurvivorBuildingModifier] = useState(1)
-
-    const [equipSurvivorResourceModifier, setEquipSurvivorResourceModifier] = useState(5)
-    const [equipSurvivorBuildingModifier, setEquipSurvivorBuildingModifier] = useState(1)
-    const [equipSurvivorCraftingModifier, setEquipSurvivorCraftingModifier] = useState(1)
-
-    // HOUSES
-    const [ housingBuildingModifier, setHousingBuildingModifier ] = useState(2)
-    const [ housingCraftingModifier, setHousingCraftingModifier ] = useState(1)
-
-    // TOOLS
-    const [ toolsResourceModifier, setToolsResourceModifier ] = useState(3)
-    const [ toolsCraftingModifier, setToolsCraftingModifier ] = useState(2)
-
-    // ACTION QUANTITY -------------------------------------
-    const [survivorsQty, setSurvivorsQty] = useState(0)
-    const [survivorsEquipQty, setSurvivorsEquipQty] = useState(0)
-
-    const [housingQty, setHousingQty] = useState(0)
-
-    const [toolsQty, setToolsQty] = useState(0)
-
-    // PRICES -------------------------------------
-    const [findSurvivorPrice, setFindSurvivorPrice] = useState(50)
-    const [equipSurvivorPrice, setEquipSurvivorPrice] = useState(2000)
-
-    const [buildHousingPrice, setBuildHousingPrice] = useState(1000)
-
-    const [toolsPrice, setToolsPrice] = useState(1500)
-
     // ACTION FUNCTIONS -------------------------------------
     // FIND SURVIVORS
     const findSurvivor = () => {
-        setResourseNumber(resourceNumber - findSurvivorPrice)
+        setResourceNumber(resourceNumber - findSurvivorPrice)
         setSurvivorsQty(survivorsQty + 1) // SURVIVOR QUANTITY
         setFindSurvivorPrice(findSurvivorPrice + (survivorsQty * 2) + survivorResourceModifier) // PRICE
         setResoursePerSec(resourcePerSec + survivorResourceModifier) // RESOURSE PRODUCTION PER SECOND
@@ -71,7 +97,7 @@ const GlobalState = (props) => {
 
     // EQUIP SURVIVORS
     const equipSurvivor = () => {
-        setResourseNumber(resourceNumber - equipSurvivorPrice)
+        setResourceNumber(resourceNumber - equipSurvivorPrice)
         setSurvivorsEquipQty(survivorsEquipQty + 1) // EQUIPPED SURVIVOR QUANTITY
         setEquipSurvivorPrice(equipSurvivorPrice + (survivorsEquipQty * 3) + equipSurvivorResourceModifier) // PRICE
         setResoursePerSec(resourcePerSec + equipSurvivorResourceModifier) // RESOURSE PRODUCTION PER SECOND
@@ -98,7 +124,7 @@ const GlobalState = (props) => {
     }
 
     // VALUE UPDATE PER SECOND -------------------------------------
-    const addResoursePerSecond = () => setResourseNumber(resourceNumber + resourcePerSec)
+    const addResoursePerSecond = () => setResourceNumber(resourceNumber + resourcePerSec)
     const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
     const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
 
