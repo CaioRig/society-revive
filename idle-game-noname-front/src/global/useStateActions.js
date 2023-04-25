@@ -1,39 +1,6 @@
-import GlobalStateContext from "./GlobalStateContext";
-import { useState, useEffect } from "react";
-import useGetSeconds from "../hooks/useGetSeconds";
-import useStateStock from "./useStateStock";
-import useStateProductionPerSec from "./useStateProductionPerSec";
+import { useState } from "react";
 
-const GlobalState = (props) => {
-    // STOCK NUMBERS
-    const { resourceNumber,
-        buildingMaterialNumber,
-        craftingMaterialNumber,
-        setResourceNumber,
-        setBuildingMaterialNumber,
-        setCraftingMaterialNumber } = useStateStock()
-
-    // PRODUCTION PER SEC
-    const {
-        resourcePerSec,
-        buildingMaterialPerSec,
-        craftingMaterialPerSec,
-        setResoursePerSec,
-        setBuildingMaterialPerSec,
-        setCraftingMaterialPerSec
-    } = useStateProductionPerSec()
-
-    // GATHER PER CLICK -------------------------------------
-    const addNumberPerClick = () => {
-        setResourceNumber(resourceNumber + 1)
-    }
-    // CLICK HACK FOR DEBUGGING PURPOSES
-    // const debugClick = () => {
-    //     setResourceNumber(resourceNumber + 100000)
-    //     setBuildingMaterialNumber(buildingMaterialNumber + 100000)
-    //     setCraftingMaterialNumber(craftingMaterialNumber + 100000)
-    // }
-
+const StateActions = () => {
     // ACTION STOCK MODIFIER -------------------------------------
     // SURVIVORS
     const [survivorResourceModifier, setSurvivorResourceModifier] = useState(1)
@@ -59,7 +26,7 @@ const GlobalState = (props) => {
 
     const [toolsQty, setToolsQty] = useState(0)
 
-    // PRICES -------------------------------------
+    // ACTION PRICES -------------------------------------
     const [findSurvivorPrice, setFindSurvivorPrice] = useState(50)
     const [equipSurvivorPrice, setEquipSurvivorPrice] = useState(2000)
 
@@ -70,7 +37,7 @@ const GlobalState = (props) => {
     // ACTION FUNCTIONS -------------------------------------
     // FIND SURVIVORS
     const findSurvivor = () => {
-        setResourceNumber(resourceNumber - findSurvivorPrice)
+        setResourseNumber(resourceNumber - findSurvivorPrice)
         setSurvivorsQty(survivorsQty + 1) // SURVIVOR QUANTITY
         setFindSurvivorPrice(findSurvivorPrice + (survivorsQty * 2) + survivorResourceModifier) // PRICE
         setResoursePerSec(resourcePerSec + survivorResourceModifier) // RESOURSE PRODUCTION PER SECOND
@@ -79,7 +46,7 @@ const GlobalState = (props) => {
 
     // EQUIP SURVIVORS
     const equipSurvivor = () => {
-        setResourceNumber(resourceNumber - equipSurvivorPrice)
+        setResourseNumber(resourceNumber - equipSurvivorPrice)
         setSurvivorsEquipQty(survivorsEquipQty + 1) // EQUIPPED SURVIVOR QUANTITY
         setEquipSurvivorPrice(equipSurvivorPrice + (survivorsEquipQty * 3) + equipSurvivorResourceModifier) // PRICE
         setResoursePerSec(resourcePerSec + equipSurvivorResourceModifier) // RESOURSE PRODUCTION PER SECOND
@@ -105,33 +72,7 @@ const GlobalState = (props) => {
         setCraftingMaterialPerSec(craftingMaterialPerSec + toolsCraftingModifier) // CRAFTING MATERIAL PRODUCTION PER SECOND
     }
 
-    // VALUE UPDATE PER SECOND -------------------------------------
-    const addResoursePerSecond = () => setResourceNumber(resourceNumber + resourcePerSec)
-    const addBuildingMaterialPerSecond = () => setBuildingMaterialNumber(buildingMaterialNumber + buildingMaterialPerSec)
-    const addCraftingMaterialPerSecond = () => setCraftingMaterialNumber(craftingMaterialNumber + craftingMaterialPerSec)
-
-    const second = useGetSeconds()
-    useEffect(() => {
-        addResoursePerSecond()
-        addBuildingMaterialPerSecond()
-        addCraftingMaterialPerSecond()
-    }, [second])
-
-    const globalData = {
-        Gather: {
-            addNumberPerClick,
-            // debugClick
-        },
-        PerSec: {
-            resourcePerSec,
-            buildingMaterialPerSec,
-            craftingMaterialPerSec
-        },
-        Stock: {
-            resourceNumber,
-            buildingMaterialNumber,
-            craftingMaterialNumber
-        },
+    const globalActionData = {
         Action: {
             findSurvivor,
             equipSurvivor,
@@ -169,12 +110,8 @@ const GlobalState = (props) => {
         }
     }
 
-    return (
-        <GlobalStateContext.Provider value={globalData}>
-            {props.children}
-        </GlobalStateContext.Provider>
-    )
+    return globalActionData;
 }
 
-export default GlobalState;
+export default StateActions;
 
