@@ -7,7 +7,6 @@ A simple idle game built using React, utilizing global state management, CSS, HT
 ## Try it out
 # [Society Revive](http://jobless-jellyfish.surge.sh/)
 
-## Samples (Still under development)
 # PC version
 ![PC version](https://i.ibb.co/ftV9h4L/Screenshot-1.png)
 
