@@ -1,7 +1,7 @@
 import { BaseDatabase } from "./BaseDatabase";
 
 export class StockDatabase extends BaseDatabase {
-    public GetResources = async () => {
+    public GetStock = async () => {
         try {
 
         } catch (error: any) {
