@@ -9,14 +9,6 @@ export class StockController {
         stockBusiness = this.stockBusiness
     }
 
-    public ping = async (req: Request, res: Response) => {
-        try {
-            res.status(200).send("pong")
-        } catch (error: any) {
-            res.status(400).send({ error: error.message })
-        }
-    }
-
     public GetStock = async (req: Request, res: Response) => {
         try {
             const UserId: GetStockInputDTO = req.body.user_id
