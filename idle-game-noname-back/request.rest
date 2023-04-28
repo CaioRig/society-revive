@@ -1,0 +1,8 @@
+### GET STOCK BY USER ID
+
+GET http://localhost:3003/stock/get
+Content-Type: application/json
+
+{
+    "user_id": "1"
+}

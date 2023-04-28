@@ -1,20 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "es6",
-    "lib": ["es6", "dom"],
-    "declaration": true,
-    "sourceMap": true,
-    "rootDir": "./src",
-    "outDir": "./build",
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "moduleResolution": "nodenext"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+     "target": "es6",
+     "module": "commonjs",
+     "outDir": "./build",
+     "rootDir": "./src",
+     "removeComments": true,
+     "strict": true,
+     "noImplicitAny": true,
+     "esModuleInterop": true,
+     "skipLibCheck": true,
+     "forceConsistentCasingInFileNames": true,
+     "resolveJsonModule": true
+  }
 }
