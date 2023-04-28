@@ -1,6 +1,10 @@
 import { StockDatabase } from "../Database/StockDatabase";
 import { MissingInput } from "../Errors/BaseError";
-import { GetStockInputDTO, SendStockInputDTO } from "../Model/Stock/StockModel";
+import {
+    GetStockInputDTO,
+    SendStockInputDTO,
+    SendStockOutputDTO
+} from "../Model/Stock/StockModel";
 
 export class StockBusiness {
     constructor(
@@ -31,8 +35,7 @@ export class StockBusiness {
                 ResourceNumber,
                 BuildingMaterialNumber,
                 CraftingMaterialNumber
-            }
-                = input
+            } = input
 
             if (!UserId ||
                 !ResourceNumber ||
@@ -41,7 +44,13 @@ export class StockBusiness {
                 throw new MissingInput()
             }
 
-            const RequestResult = await this.stockDatabase.SendStock(input)
+            const newData: SendStockOutputDTO = {
+                user_id: UserId,
+                resource_number: ResourceNumber,
+                building_material_number: BuildingMaterialNumber,
+                crafting_material_number: CraftingMaterialNumber
+            }
+            const RequestResult = await this.stockDatabase.SendStock(newData)
 
             return RequestResult
         } catch (error: any) {

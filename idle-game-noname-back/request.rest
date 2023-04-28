@@ -6,3 +6,15 @@ Content-Type: application/json
 {
     "user_id": "1"
 }
+
+### SEND STOCK DATA TO DB
+
+POST http://localhost:3003/stock/send
+Content-Type: application/json
+
+{
+    "user_id": "2",
+    "resource_number": "543534",
+    "building_material_number": "1231",
+    "crafting_material_number": "6456"
+}

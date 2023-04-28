@@ -8,3 +8,10 @@ export interface SendStockInputDTO {
     BuildingMaterialNumber: string,
     CraftingMaterialNumber: string
 }
+
+export interface SendStockOutputDTO {
+    user_id: string,
+    resource_number: string,
+    building_material_number: string,
+    crafting_material_number: string
+}

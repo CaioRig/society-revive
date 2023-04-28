@@ -37,7 +37,7 @@ export class StockController {
 
             await this.stockBusiness.SendStock(input)
 
-            res.status(200).send()
+            res.status(200).send("Success!")
         } catch (error: any) {
             res.status(400).send({ error: error.message })
         }
