@@ -6,6 +6,8 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-app.listen(process.env.DB_PORT || 3306,()=> {`Server running on port ${process.env.DB_PORT || 3306}`})
+let port = 3003
+
+app.listen(port, () => console.log(`Server running on port ${port}`))
 
 export default app; 
