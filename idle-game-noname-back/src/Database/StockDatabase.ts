@@ -1,4 +1,4 @@
-import { GetStockInputDTO } from "../Model/Stock/StockModel";
+import { GetStockInputDTO, SendStockInputDTO } from "../Model/Stock/StockModel";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class StockDatabase extends BaseDatabase {
@@ -7,6 +7,20 @@ export class StockDatabase extends BaseDatabase {
     public GetStock = async (UserId: GetStockInputDTO) => {
         try {
             const user_id = UserId
+
+            const RequestResult = await StockDatabase.connection(this.TABLE_NAME)
+                .select('*')
+                .where({user_id})
+
+            return RequestResult
+        } catch (error: any) {
+            throw new Error(error.sqlMessage || error.message)
+        }
+    }
+
+    public SendStock = async (DataToSend: SendStockInputDTO) => {
+        try {
+            const user_id = DataToSend
 
             const RequestResult = await StockDatabase.connection(this.TABLE_NAME)
                 .select('*')
