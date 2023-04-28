@@ -50,9 +50,14 @@ export class StockBusiness {
                 building_material_number: BuildingMaterialNumber,
                 crafting_material_number: CraftingMaterialNumber
             }
-            const RequestResult = await this.stockDatabase.SendStock(newData)
+            const RequestResult = await this.stockDatabase.GetStockUserId(UserId)
 
-            return RequestResult
+            if (RequestResult.length !== 0) {
+                await this.stockDatabase.UpdateStock(newData)
+            } else {
+                await this.stockDatabase.SendStock(newData)
+            }
+
         } catch (error: any) {
             throw new Error(error.message)
         }

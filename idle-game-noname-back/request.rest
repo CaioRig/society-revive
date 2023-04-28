@@ -13,8 +13,8 @@ POST http://localhost:3003/stock/send
 Content-Type: application/json
 
 {
-    "user_id": "2",
-    "resource_number": "543534",
+    "user_id": "3",
+    "resource_number": "12312312",
     "building_material_number": "1231",
     "crafting_material_number": "6456"
 }
