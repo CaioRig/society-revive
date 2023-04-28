@@ -35,9 +35,9 @@ export class StockController {
                 CraftingMaterialNumber: crafting_material_number
             }
 
-            await this.stockBusiness.SendStock(input)
+            const message = await this.stockBusiness.SendStock(input)
 
-            res.status(200).send("Success!")
+            res.status(200).send(message)
         } catch (error: any) {
             res.status(400).send({ error: error.message })
         }

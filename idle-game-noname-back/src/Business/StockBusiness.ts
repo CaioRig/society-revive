@@ -51,11 +51,18 @@ export class StockBusiness {
                 crafting_material_number: CraftingMaterialNumber
             }
             const RequestResult = await this.stockDatabase.GetStockUserId(UserId)
+            let message: string = ``
 
             if (RequestResult.length !== 0) {
                 await this.stockDatabase.UpdateStock(newData)
+                message = "Success! User information updated"
+
+                return message
             } else {
                 await this.stockDatabase.SendStock(newData)
+                message = "Success! User information created"
+
+                return message
             }
 
         } catch (error: any) {
