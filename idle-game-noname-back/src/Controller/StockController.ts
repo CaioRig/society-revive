@@ -9,11 +9,11 @@ export class StockController {
         stockBusiness = this.stockBusiness
     }
 
-    public GetStock = async (req: Request, res: Response) => {
+    public getStock = async (req: Request, res: Response) => {
         try {
             const UserId: GetStockInputDTO = req.body.user_id
 
-            const StockData = await this.stockBusiness.GetStock(UserId)
+            const StockData = await this.stockBusiness.getStock(UserId)
 
             res.status(200).send(StockData)
         } catch (error: any) {
@@ -21,7 +21,7 @@ export class StockController {
         }
     }
 
-    public SendStock = async (req: Request, res: Response) => {
+    public sendStock = async (req: Request, res: Response) => {
         try {
             const { user_id,
                 resource_number,
@@ -35,7 +35,7 @@ export class StockController {
                 CraftingMaterialNumber: crafting_material_number
             }
 
-            const message = await this.stockBusiness.SendStock(input)
+            const message = await this.stockBusiness.sendStock(input)
 
             res.status(200).send(message)
         } catch (error: any) {

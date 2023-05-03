@@ -4,7 +4,7 @@ import { BaseDatabase } from "./BaseDatabase";
 export class StockDatabase extends BaseDatabase {
     private TABLE_NAME = 'stock_numbers'
 
-    public GetStock = async (UserId: GetStockInputDTO) => {
+    public getStock = async (UserId: GetStockInputDTO) => {
         try {
             const user_id = UserId
 
@@ -18,7 +18,7 @@ export class StockDatabase extends BaseDatabase {
         }
     }
 
-    public GetStockUserId = async (UserId: string) => {
+    public getStockUserId = async (UserId: string) => {
         try {
             const user_id = UserId
 
@@ -32,7 +32,7 @@ export class StockDatabase extends BaseDatabase {
         }
     }
 
-    public SendStock = async (newData: SendStockOutputDTO) => {
+    public sendStock = async (newData: SendStockOutputDTO) => {
         try {
             const {
                 user_id,
@@ -53,7 +53,7 @@ export class StockDatabase extends BaseDatabase {
         }
     }
 
-    public UpdateStock = async (newData: SendStockOutputDTO) => {
+    public updateStock = async (newData: SendStockOutputDTO) => {
         try {
             const {
                 user_id,

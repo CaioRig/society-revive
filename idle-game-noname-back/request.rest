@@ -4,7 +4,7 @@ GET http://localhost:3003/stock/get
 Content-Type: application/json
 
 {
-    "user_id": "1"
+    "user_id": "3"
 }
 
 ### SEND STOCK DATA TO DB
@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
     "user_id": "3",
-    "resource_number": "12312312",
+    "resource_number": "31232",
     "building_material_number": "1231",
     "crafting_material_number": "6456"
 }

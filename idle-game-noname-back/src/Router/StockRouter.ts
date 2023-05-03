@@ -1,9 +1,11 @@
-import express from "express";
+import { Router, json } from "express";
 import { StockController } from "../Controller/StockController";
 
-export const StockRouter = express.Router()
+const stockRouter = Router();
+const stockController = new StockController();
 
-const stockController = new StockController()
+stockRouter.use(json());
+stockRouter.get("/get", stockController.getStock);
+stockRouter.post("/send", stockController.sendStock);
 
-StockRouter.get("/get", stockController.GetStock)
-StockRouter.post("/send", stockController.SendStock)
+export default stockRouter;

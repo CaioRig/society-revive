@@ -13,7 +13,7 @@ export class StockBusiness {
         stockDatabase = this.stockDatabase
     }
 
-    public GetStock = async (input: GetStockInputDTO) => {
+    public getStock = async (input: GetStockInputDTO) => {
         try {
             const UserId = input
 
@@ -21,7 +21,7 @@ export class StockBusiness {
                 throw new MissingInput()
             }
 
-            const RequestResult = await this.stockDatabase.GetStock(UserId)
+            const RequestResult = await this.stockDatabase.getStock(UserId)
 
             return RequestResult
         } catch (error: any) {
@@ -29,7 +29,7 @@ export class StockBusiness {
         }
     }
 
-    public SendStock = async (input: SendStockInputDTO) => {
+    public sendStock = async (input: SendStockInputDTO) => {
         try {
             const { UserId,
                 ResourceNumber,
@@ -50,16 +50,16 @@ export class StockBusiness {
                 building_material_number: BuildingMaterialNumber,
                 crafting_material_number: CraftingMaterialNumber
             }
-            const RequestResult = await this.stockDatabase.GetStockUserId(UserId)
+            const RequestResult = await this.stockDatabase.getStockUserId(UserId)
             let message: string = ``
 
             if (RequestResult.length !== 0) {
-                await this.stockDatabase.UpdateStock(newData)
+                await this.stockDatabase.updateStock(newData)
                 message = "Success! User information updated"
 
                 return message
             } else {
-                await this.stockDatabase.SendStock(newData)
+                await this.stockDatabase.sendStock(newData)
                 message = "Success! User information created"
 
                 return message
