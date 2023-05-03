@@ -4,6 +4,7 @@ import { BaseDatabase } from "./BaseDatabase";
 export class StockDatabase extends BaseDatabase {
     private TABLE_NAME = 'stock_numbers'
 
+    // Get user stock data based on user_id
     public getStock = async (UserId: GetStockInputDTO) => {
         try {
             const user_id = UserId
@@ -18,6 +19,7 @@ export class StockDatabase extends BaseDatabase {
         }
     }
 
+    // Checks if the user_id already exists
     public getStockUserId = async (UserId: string) => {
         try {
             const user_id = UserId
@@ -32,6 +34,7 @@ export class StockDatabase extends BaseDatabase {
         }
     }
 
+    // Create a user stock data
     public sendStock = async (newData: SendStockOutputDTO) => {
         try {
             const {
@@ -53,6 +56,7 @@ export class StockDatabase extends BaseDatabase {
         }
     }
 
+    // Update a user stock data based on user_id
     public updateStock = async (newData: SendStockOutputDTO) => {
         try {
             const {
