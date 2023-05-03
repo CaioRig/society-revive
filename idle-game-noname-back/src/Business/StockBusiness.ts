@@ -1,5 +1,5 @@
 import { StockDatabase } from "../Database/StockDatabase";
-import { MissingInput } from "../Errors/BaseError";
+import { GetUserRequestEmpty, MissingInput } from "../Errors/BaseError";
 import {
     GetStockInputDTO,
     SendStockInputDTO,
@@ -22,6 +22,10 @@ export class StockBusiness {
             }
 
             const RequestResult = await this.stockDatabase.getStock(UserId)
+
+            if(RequestResult.length === 0){
+                throw new GetUserRequestEmpty()
+            }
 
             return RequestResult
         } catch (error: any) {

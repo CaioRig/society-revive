@@ -9,3 +9,9 @@ export class MissingInput extends BaseError {
         super("Missing input. Please check your request", 400)
     }
 }
+
+export class GetUserRequestEmpty extends BaseError{
+    constructor(){
+        super("No user found with this id", 400)
+    }
+}
