@@ -5,7 +5,7 @@ Um jogo idle simples construído usando React, com gerenciamento de estado globa
 A simple idle game built using React, utilizing global state management, CSS, HTML, React Hooks, JavaScript, and Material UI. The game is still under development and aims to provide an engaging and interactive experience for players.
 
 ## Try it out
-# [Society Revive](https://societyrevive.vercel.app) 
+# [Society Revive](https://society-revive.vercel.app/) 
 
 ## PC version
 ![PC version](https://i.ibb.co/ftV9h4L/Screenshot-1.png)
